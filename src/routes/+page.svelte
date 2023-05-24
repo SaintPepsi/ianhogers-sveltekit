@@ -15,6 +15,10 @@
     import FaRobot from "svelte-icons/fa/FaRobot.svelte";
 </script>
 
+<svelte:head>
+    <title>Ian Hogers - Software Engineer</title>
+</svelte:head>
+
 <div class="wrapper">
     <div class="content">
         <div class="container">
