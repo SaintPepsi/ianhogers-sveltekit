@@ -59,15 +59,6 @@
                 <span class="shadow">Mobile Apps</span>
             </a>
             <a
-                href="mailto:info@ianhogers.com?subject=Automated Trading Integrations"
-                class="icon white wrapped"
-            >
-                <FaChartBar />
-                <span class="shadow"
-                    >Automated Trading Integrations</span
-                >
-            </a>
-            <a
                 href="mailto:info@ianhogers.com?subject=Game Development"
                 class="icon white wrapped"
             >
@@ -108,13 +99,6 @@
             </a>
         </div>
 
-        <a
-            href="https://3commas.io/?utm_source=referral&utm_medium=cabinet&c=tc596185"
-            target="_blank"
-            class="icon white robot"
-        >
-            <FaRobot />
-        </a>
     </div>
 </div>
 
