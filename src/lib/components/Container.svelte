@@ -1,9 +1,9 @@
-<div class="container">
+<div class="Container">
     <slot />
 </div>
 
 <style lang="scss">
-    .container {
+    .Container {
         position: relative;
         width: 100%;
         padding: 0px 24px;
