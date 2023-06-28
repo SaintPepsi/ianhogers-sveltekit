@@ -1,28 +1,51 @@
 <script>
+    import Anchor from "./Anchor.svelte";
+    import Container from "./Container.svelte";
     import favIcon from "/images/favicon.png";
+
+    const navItems = [
+        ["/", "Home"],
+        ["/contact", "Contact"],
+        ["/about", "About"],
+        ["/projects", "Projects"],
+        ["/solutions", "Solutions"],
+    ];
 </script>
 
 <div class="nav-wrapper">
-    <img src={favIcon} alt="Profile Shot" />
-    <nav>
-        <a href="/">Home</a>
-        <a href="/contact">Contact</a>
-        <a href="/about">About</a>
-        <a href="/projects">Projects</a>
-        <a href="/solutions">Solutions</a>
-    </nav>
+    <img
+        src={favIcon}
+        height="44"
+        width="auto"
+        alt="Profile Shot"
+        class="favicon"
+    />
+    <Container>
+        <nav>
+            {#each navItems as [route, title]}
+                <Anchor href={route}>{title}</Anchor>
+            {/each}
+        </nav>
+    </Container>
 </div>
 
-<style>
+<style lang="scss">
+    @import "$lib/styles/theme.scss";
     .nav-wrapper {
+        position: relative;
         display: flex;
         align-items: center;
+        padding: $padding $padding * 2;
+        min-height: $padding * 8;
     }
 
     nav {
-        width: 100%;
-        padding: 0px 24px;
-        max-width: 1200px;
-        margin: 0 auto;
+        :global(> *) {
+            margin-right: $padding * 3;
+        }
+    }
+
+    .favicon {
+        position: absolute;
     }
 </style>

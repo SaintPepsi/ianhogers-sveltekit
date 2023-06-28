@@ -1,0 +1,18 @@
+<script lang="ts">
+    export let href = "";
+</script>
+
+<a {href}><slot /></a>
+
+<style lang="scss">
+    @import "$lib/styles/theme.scss";
+    a {
+        color: $color--white;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+</style>
