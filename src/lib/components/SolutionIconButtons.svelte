@@ -1,12 +1,5 @@
 <script lang="ts">
     /**********************************************************************************************************
-     *   BASE IMPORT
-     **********************************************************************************************************/
-    import SolarCartLarge2BoldDuotone from "~icons/solar/cart-large-2-bold-duotone";
-    import SolarBoxMinimalisticBoldDuotone from "~icons/solar/box-minimalistic-bold-duotone";
-    import SolarMonitorSmartphoneBoldDuotone from "~icons/solar/monitor-smartphone-bold-duotone";
-    import SolarGamepadBoldDuotone from "~icons/solar/gamepad-bold-duotone";
-    /**********************************************************************************************************
      *   SHARED
      **********************************************************************************************************/
     import Grid from "./Grid.svelte";
@@ -20,22 +13,10 @@
     import { PADDING } from "$lib/data/theme";
 
     const solutions = [
-        {
-            ...routes.solutions.subRoutes.ecommerce,
-            Icon: SolarCartLarge2BoldDuotone,
-        },
-        {
-            ...routes.solutions.subRoutes.websites,
-            Icon: SolarMonitorSmartphoneBoldDuotone,
-        },
-        {
-            ...routes.solutions.subRoutes.apps,
-            Icon: SolarBoxMinimalisticBoldDuotone,
-        },
-        {
-            ...routes.solutions.subRoutes.games,
-            Icon: SolarGamepadBoldDuotone,
-        },
+        routes.solutions.subRoutes.ecommerce,
+        routes.solutions.subRoutes.websites,
+        routes.solutions.subRoutes.apps,
+        routes.solutions.subRoutes.games,
     ];
 </script>
 

@@ -4,6 +4,7 @@
      **********************************************************************************************************/
     import Bar from "$components/Bar.svelte";
     import Container from "$components/Container.svelte";
+    import Flex from "$components/Flex.svelte";
     import Grid from "$components/Grid.svelte";
     import SolutionIconButtons from "$components/SolutionIconButtons.svelte";
     import Spacer from "$components/Spacer.svelte";
@@ -26,14 +27,19 @@
                     alt="Profile Shot"
                 />
             </Tile>
-            <div class="info">
+            <Flex
+                direction="column"
+                align="start"
+                justify="end"
+                style={"height: 100%;"}
+            >
                 <h2>Ian Hogers</h2>
                 <h1>
                     Software Engineer
                     <Bar />
                 </h1>
                 <h3>Building Solutions to your needs</h3>
-            </div>
+            </Flex>
         </Grid>
     </Spacer>
     <Spacer>
@@ -52,17 +58,6 @@
 
 <style lang="scss">
     @import "$styles/theme.scss";
-
-    .info {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-
-        > * {
-            align-self: baseline;
-        }
-    }
 
     .solutions {
         h3 {
