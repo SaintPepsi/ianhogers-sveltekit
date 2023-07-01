@@ -18,6 +18,9 @@
     /********** Images **********/
     import { IMAGE_profileShot } from "$lib/assets/images";
     import Flex from "$components/Flex.svelte";
+    import Bar from "$components/Bar.svelte";
+    import Chip from "$components/Chip.svelte";
+    import Label from "$components/Label.svelte";
 </script>
 
 <Container size="medium">
@@ -28,8 +31,15 @@
                 slot="Tile"
                 {...IMAGE_profileShot}
             />
-            <Flex slot="Content" align="stretch">
+            <Flex
+                slot="Content"
+                align="start"
+                direction="column"
+                gap={1}
+            >
                 <h2>Ian Hogers</h2>
+                <Bar />
+                <Label>Result Driven</Label>
             </Flex>
         </HeadingTileContent>
     </Spacer>

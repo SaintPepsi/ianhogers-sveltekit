@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { PADDING } from "$lib/data/theme";
+
     type Align = "start" | "center" | "end" | "stretch";
     type Justify =
         | "start"
@@ -13,6 +15,7 @@
     export let align: Align = "center";
     export let justify: Justify = "center";
     export let reverse = false;
+    export let gap = 0;
 
     //  'start' | 'center' | 'end' | 'stretch'
     const alignMap = {
@@ -41,6 +44,7 @@
     {...$$restProps}
     class={$$restProps.class}
     style:display="flex"
+    style:gap={gap ? `${gap * PADDING}px` : ""}
     style:flex-direction={directionWithReverse}
     style:align-items={alignMap[align]}
     style:justify-content={justifyMap[justify]}
