@@ -1,15 +1,17 @@
 <script>
+    /**********************************************************************************************************
+     *   SHARED
+     **********************************************************************************************************/
     import Anchor from "./Anchor.svelte";
     import Container from "./Container.svelte";
-    import favIcon from "/images/favicon.png";
 
-    const navItems = [
-        ["/", "Home"],
-        ["/contact", "Contact"],
-        ["/about", "About"],
-        ["/projects", "Projects"],
-        ["/solutions", "Solutions"],
-    ];
+    /**********************************************************************************************************
+     *   CONSTS
+     **********************************************************************************************************/
+    import favIcon from "/images/favicon.png";
+    import { routes } from "$lib/data/nav";
+
+    const navItems = [routes.home, routes.solutions, routes.projects];
 </script>
 
 <div class="nav-wrapper">
@@ -22,7 +24,7 @@
     />
     <Container>
         <nav>
-            {#each navItems as [route, title]}
+            {#each navItems as { route, title }}
                 <Anchor href={route}>{title}</Anchor>
             {/each}
         </nav>

@@ -8,5 +8,6 @@
         @extend .primary;
         border-radius: 4px;
         margin-top: $padding * 2;
+        margin-bottom: $padding;
     }
 </style>

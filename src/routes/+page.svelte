@@ -1,14 +1,11 @@
 <script lang="ts">
     /**********************************************************************************************************
-     *   BASE IMPORT
-     **********************************************************************************************************/
-    import SolarCartLarge2BoldDuotone from "~icons/solar/cart-large-2-bold-duotone";
-    /**********************************************************************************************************
      *   SHARED
      **********************************************************************************************************/
     import Bar from "$components/Bar.svelte";
     import Container from "$components/Container.svelte";
     import Grid from "$components/Grid.svelte";
+    import SolutionIconButtons from "$components/SolutionIconButtons.svelte";
     import Spacer from "$components/Spacer.svelte";
     import Tile from "$components/Tile.svelte";
 
@@ -16,12 +13,11 @@
      *   CONSTS
      **********************************************************************************************************/
     import ProfilePhoto from "/images/profile.jpeg";
-    import { PADDING } from "$lib/data/theme";
 </script>
 
 <Container size="medium">
     <Spacer>
-        <Grid columns="1fr 3fr">
+        <Grid columns="2fr 4fr" gap={4}>
             <Tile>
                 <img
                     width="100%"
@@ -42,15 +38,14 @@
     </Spacer>
     <Spacer>
         <div class="solutions">
-            <Grid columns="1fr 6fr">
-                <Tile ratio={0.6}>
-                    <SolarCartLarge2BoldDuotone
-                        width={PADDING * 8}
-                        height={PADDING * 8}
-                    />
-                </Tile>
-                test
-            </Grid>
+            <h3>Solutions:</h3>
+            <SolutionIconButtons />
+        </div>
+    </Spacer>
+
+    <Spacer>
+        <div class="projects">
+            <h3>Projects:</h3>
         </div>
     </Spacer>
 </Container>
@@ -59,12 +54,19 @@
     @import "$styles/theme.scss";
 
     .info {
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
 
         > * {
             align-self: baseline;
+        }
+    }
+
+    .solutions {
+        h3 {
+            margin-bottom: $padding * 2;
         }
     }
 </style>
