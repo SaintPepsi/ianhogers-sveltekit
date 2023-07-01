@@ -25,8 +25,8 @@ export const routes = {
         route: "/solutions",
         subRoutes: {
             ecommerce: {
-                title: "e-Commerce",
-                route: "/solutions/e-commerce",
+                title: "Ecommerce",
+                route: "/solutions/ecommerce",
                 Icon: SolarCartLarge2BoldDuotone,
             },
             websites: {
