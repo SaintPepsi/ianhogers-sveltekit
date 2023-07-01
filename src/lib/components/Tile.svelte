@@ -1,6 +1,8 @@
 <script lang="ts">
     export let ratio: number = 0;
     export let secondary: boolean = false;
+    export let tertiary: boolean = false;
+    export let error: boolean = false;
     export let column: boolean = false;
     export let interactable: boolean = false;
 
@@ -14,6 +16,8 @@
     class="Tile"
     {style}
     class:secondary
+    class:tertiary
+    class:error
     class:column
     class:interactable
 >
@@ -74,10 +78,28 @@
             justify-content: center;
         }
         &.secondary {
+            @extend .secondary;
+            .ratioWrapper {
+                > :global(*) {
+                    @extend .on-secondary-text;
+                }
+            }
+        }
+
+        &.tertiary {
             @extend .tertiary;
             .ratioWrapper {
                 > :global(*) {
                     @extend .on-tertiary-text;
+                }
+            }
+        }
+
+        &.error {
+            @extend .error;
+            .ratioWrapper {
+                > :global(*) {
+                    @extend .on-error-text;
                 }
             }
         }
