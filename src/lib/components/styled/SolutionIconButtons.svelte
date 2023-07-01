@@ -2,9 +2,9 @@
     /**********************************************************************************************************
      *   SHARED
      **********************************************************************************************************/
-    import Grid from "./Grid.svelte";
-    import Tile from "./Tile.svelte";
-    import Anchor from "./Anchor.svelte";
+    import Anchor from "$components/Anchor.svelte";
+    import Grid from "$components/Grid.svelte";
+    import Tile from "$components/Tile.svelte";
 
     /**********************************************************************************************************
      *   CONSTS

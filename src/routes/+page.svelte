@@ -6,9 +6,11 @@
     import Container from "$components/Container.svelte";
     import Flex from "$components/Flex.svelte";
     import Grid from "$components/Grid.svelte";
-    import SolutionIconButtons from "$components/SolutionIconButtons.svelte";
     import Spacer from "$components/Spacer.svelte";
     import Tile from "$components/Tile.svelte";
+
+    /********** SHARED Styled **********/
+    import SolutionIconButtons from "$components/styled/SolutionIconButtons.svelte";
 
     /**********************************************************************************************************
      *   CONSTS
