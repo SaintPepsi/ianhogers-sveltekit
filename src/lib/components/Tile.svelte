@@ -35,6 +35,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: all 0.15s ease-in-out;
 
         box-shadow: 0.3px 0.3px 2.2px rgba(0, 0, 0, 0.014),
             0.7px 0.7px 5.3px rgba(0, 0, 0, 0.02),
@@ -45,6 +46,7 @@
 
         &.interactable {
             &:hover {
+                z-index: 5;
                 box-shadow: 0.1px 0.1px 2.2px rgba(0, 0, 0, 0.042),
                     0.3px 0.3px 5.3px rgba(0, 0, 0, 0.061),
                     0.6px 0.6px 10px rgba(0, 0, 0, 0.075),
