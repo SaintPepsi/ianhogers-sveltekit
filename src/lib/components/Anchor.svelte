@@ -7,7 +7,8 @@
 <style lang="scss">
     @import "$styles/theme.scss";
     a {
-        color: $color--white;
+        @extend .on-background-text;
+        @extend .label-medium;
         text-decoration: none;
 
         &:hover,

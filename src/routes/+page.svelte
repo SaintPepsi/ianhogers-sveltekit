@@ -10,22 +10,26 @@
     import Container from "$components/Container.svelte";
     import Grid from "$components/Grid.svelte";
     import Spacer from "$components/Spacer.svelte";
+    import Tile from "$components/Tile.svelte";
 
     /**********************************************************************************************************
      *   CONSTS
      **********************************************************************************************************/
     import ProfilePhoto from "/images/profile.jpeg";
+    import { PADDING } from "$lib/data/theme";
 </script>
 
 <Container size="medium">
     <Spacer>
         <Grid columns="1fr 3fr">
-            <img
-                width="100%"
-                height="auto"
-                src={ProfilePhoto}
-                alt="Profile Shot"
-            />
+            <Tile>
+                <img
+                    width="100%"
+                    height="auto"
+                    src={ProfilePhoto}
+                    alt="Profile Shot"
+                />
+            </Tile>
             <div class="info">
                 <h2>Ian Hogers</h2>
                 <h1>
@@ -39,7 +43,12 @@
     <Spacer>
         <div class="solutions">
             <Grid columns="1fr 6fr">
-                <SolarCartLarge2BoldDuotone width={40} height={40} />
+                <Tile ratio={0.6}>
+                    <SolarCartLarge2BoldDuotone
+                        width={PADDING * 8}
+                        height={PADDING * 8}
+                    />
+                </Tile>
                 test
             </Grid>
         </div>

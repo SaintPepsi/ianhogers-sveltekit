@@ -1,25 +1,29 @@
+@import "./theme/tokens.scss";
+/* (prefers-color-scheme: light); */
+@import "./theme/theme.light.scss";
+/* (prefers-color-scheme: dark); */
+@import "./theme/theme.dark.scss";
 @import "./theme.scss";
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Commissioner", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-body {
-    background-color: $color--dark-gray;
-    color: #fff;
+
+h1 {
+    @extend .on-background-text;
+    @extend .headline-large;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    line-height: 2rem;
-    font-family: "Source Code Pro", monospace;
-    letter-spacing: 0.5px;
+h2 {
+    @extend .on-background-text;
+    @extend .headline-medium;
+}
+
+h3 {
+    @extend .on-background-text;
+    @extend .headline-small;
 }

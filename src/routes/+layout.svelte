@@ -8,14 +8,23 @@
      *   CONSTS
      **********************************************************************************************************/
     import "$lib/styles/global.scss";
+
+    let theme: "light" | "dark" = "dark";
 </script>
 
 <svelte:head>
     <title>Ian Hogers - Software Engineer</title>
 </svelte:head>
 
-<Nav />
-<slot />
+<div class="Layout" data-theme={theme}>
+    <Nav />
+    <slot />
+</div>
 
 <style lang="scss">
+    @import "$styles/theme.scss";
+    .Layout {
+        min-height: 100vh;
+        @extend .background;
+    }
 </style>

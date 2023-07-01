@@ -5,7 +5,7 @@
     .bar {
         width: 100%;
         height: $padding;
-        background-color: $color--green;
+        @extend .primary;
         border-radius: 4px;
         margin-top: $padding * 2;
     }
