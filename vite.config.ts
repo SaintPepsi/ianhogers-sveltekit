@@ -1,6 +1,7 @@
 import { sveltekit } from "@sveltejs/kit/vite";
 import { defineConfig } from "vite";
 import Icons from "unplugin-icons/vite";
+import { imagetools } from "@zerodevx/svelte-img/vite";
 
 export default defineConfig({
     plugins: [
@@ -8,5 +9,6 @@ export default defineConfig({
         Icons({
             compiler: "svelte",
         }),
+        imagetools(),
     ],
 });

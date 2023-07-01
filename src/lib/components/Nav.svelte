@@ -11,7 +11,12 @@
     import favIcon from "/images/favicon.png";
     import { routes } from "$lib/data/nav";
 
-    const navItems = [routes.home, routes.solutions, routes.projects];
+    const navItems = [
+        routes.home,
+        routes.solutions,
+        routes.projects,
+        routes.about,
+    ];
 </script>
 
 <div class="nav-wrapper">

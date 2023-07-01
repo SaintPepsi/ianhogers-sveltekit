@@ -32,3 +32,7 @@ h4 {
     @extend .on-background-text;
     @extend .title-large;
 }
+
+picture {
+    display: inherit;
+}
