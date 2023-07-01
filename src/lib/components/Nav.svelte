@@ -22,7 +22,7 @@
         alt="Profile Shot"
         class="favicon"
     />
-    <Container>
+    <Container size="medium">
         <nav>
             {#each navItems as { route, title }}
                 <Anchor href={route}>{title}</Anchor>
