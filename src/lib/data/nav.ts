@@ -1,3 +1,6 @@
+/**********************************************************************************************************
+ *   CONSTS
+ **********************************************************************************************************/
 import SolarCartLarge2BoldDuotone from "~icons/solar/cart-large-2-bold-duotone";
 import SolarBoxMinimalisticBoldDuotone from "~icons/solar/box-minimalistic-bold-duotone";
 import SolarMonitorSmartphoneBoldDuotone from "~icons/solar/monitor-smartphone-bold-duotone";

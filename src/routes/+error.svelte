@@ -2,7 +2,6 @@
     /**********************************************************************************************************
      *   BASE IMPORT
      **********************************************************************************************************/
-    import SolarBugMinimalisticBoldDuotone from "~icons/solar/bug-minimalistic-bold-duotone";
     import { page } from "$app/stores";
 
     /**********************************************************************************************************
@@ -13,10 +12,12 @@
     import Grid from "$components/Grid.svelte";
     import Tile from "$components/Tile.svelte";
     import Bar from "$components/Bar.svelte";
+    import Flex from "$components/Flex.svelte";
 
     /**********************************************************************************************************
      *   CONSTS
      **********************************************************************************************************/
+    import SolarBugMinimalisticBoldDuotone from "~icons/solar/bug-minimalistic-bold-duotone";
     import { PADDING } from "$lib/data/theme";
 </script>
 
@@ -28,13 +29,13 @@
                     font-size={PADDING * 6}
                 />
             </Tile>
-            <div class="info">
+            <Flex direction="column" align="stretch">
                 <h1>
                     {$page.status}: {$page?.error?.message}
                     <Bar />
                 </h1>
                 <h3>{$page.url.pathname}</h3>
-            </div>
+            </Flex>
         </Grid>
     </Spacer>
 </Container>
