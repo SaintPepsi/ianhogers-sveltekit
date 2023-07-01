@@ -5,7 +5,7 @@
 <a {href}><slot /></a>
 
 <style lang="scss">
-    @import "$lib/styles/theme.scss";
+    @import "$styles/theme.scss";
     a {
         color: $color--white;
         text-decoration: none;

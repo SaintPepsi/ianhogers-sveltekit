@@ -5,13 +5,13 @@
     export let columns = "";
     export let gap = 2;
 
-    const style = {
+    const style = cssStringify({
         "grid-template-columns": columns,
-        gap: `${gap * PADDING}px`,
-    };
+        gap: gap * PADDING,
+    });
 </script>
 
-<div class="Grid" style={cssStringify(style)}>
+<div class="Grid" {style}>
     <slot />
 </div>
 

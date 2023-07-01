@@ -30,7 +30,7 @@
 </div>
 
 <style lang="scss">
-    @import "$lib/styles/theme.scss";
+    @import "$styles/theme.scss";
     .nav-wrapper {
         position: relative;
         display: flex;
