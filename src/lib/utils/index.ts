@@ -41,3 +41,7 @@ export function createThemeClasses(
 
     return `${bgClass} ${textClass}`;
 }
+
+export function classes(...rest: string[]) {
+    return rest.join(" ");
+}

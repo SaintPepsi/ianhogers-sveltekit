@@ -16,18 +16,18 @@
 
     /********** SHARED Styled **********/
     import SolutionIconButtons from "$components/styled/SolutionIconButtons.svelte";
+    import CoreTechLabels from "$components/styled/CoreTechLabels.svelte";
 
     /**********************************************************************************************************
      *   CONSTS
      **********************************************************************************************************/
     /********** Images **********/
     import { IMAGE_profileShot } from "$lib/assets/images";
-    import ContactButton from "$components/styled/ContactButton.svelte";
 </script>
 
 <Container size="medium">
     <Spacer>
-        <Grid columns="2fr 4fr" gap={4}>
+        <Grid columns="2fr 4fr" gap={2}>
             <Tile type="primary">
                 <Img
                     style={"width: 100%; height: auto;"}
@@ -48,6 +48,13 @@
                 <h3>Building Solutions to your needs</h3>
             </Flex>
         </Grid>
+        <Spacer top={2}>
+            <Grid columns="1fr 1fr">
+                <Flex justify="start" align="center" wrap="wrap">
+                    <CoreTechLabels />
+                </Flex>
+            </Grid>
+        </Spacer>
     </Spacer>
     <Spacer>
         <div class="solutions">

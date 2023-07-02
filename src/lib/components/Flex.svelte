@@ -10,10 +10,12 @@
         | "between"
         | "evenly";
     type Direction = "row" | "column";
+    type Wrap = "no-wrap" | "wrap" | "wrap-reverse";
 
     export let direction: Direction = "row";
     export let align: Align = "center";
     export let justify: Justify = "center";
+    export let wrap: Wrap = "no-wrap";
     export let reverse = false;
     export let gap = 1;
 
@@ -46,6 +48,7 @@
     style:display="flex"
     style:gap={gap ? `${gap * PADDING}px` : ""}
     style:flex-direction={directionWithReverse}
+    style:flex-wrap={wrap}
     style:align-items={alignMap[align]}
     style:justify-content={justifyMap[justify]}
 >

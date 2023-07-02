@@ -1,5 +1,7 @@
 <script lang="ts">
-    export let size: "small" | "medium" | "large" = "medium";
+    import type { ThemeFontSize } from "$lib/utils";
+
+    export let size: ThemeFontSize = "medium";
 
     $: sizeClass = `label-${size}`;
 </script>
