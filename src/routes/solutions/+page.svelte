@@ -20,7 +20,7 @@
 
 <Container size="medium">
     <Spacer>
-        <HeadingTileContent>
+        <HeadingTileContent type="tertiary">
             <Grid slot="Tile" columns="1fr 1fr">
                 {#each solutionIcons as { Icon }}
                     <Icon font-size={iconSize} />
@@ -28,7 +28,7 @@
             </Grid>
             <svelte:fragment slot="Content">
                 <h1>Solutions</h1>
-                <Bar />
+                <Bar type="tertiary" />
             </svelte:fragment>
         </HeadingTileContent>
     </Spacer>

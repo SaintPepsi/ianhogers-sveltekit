@@ -1,8 +1,11 @@
 <script lang="ts">
+    import type { ThemeType } from "$lib/utils";
     interface $$Slots {
         Tile: {};
         Content: {};
     }
+
+    export let type: ThemeType = "secondary";
 
     /**********************************************************************************************************
      *   SHARED
@@ -13,7 +16,7 @@
 </script>
 
 <Grid columns="1fr 3fr" gap={4}>
-    <Tile type="secondary" ratio={1}>
+    <Tile {type} ratio={1}>
         <slot name="Tile" />
     </Tile>
     <Flex direction="column" align="start" style={"height: 100%;"}>
