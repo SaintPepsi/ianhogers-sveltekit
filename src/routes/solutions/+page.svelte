@@ -15,6 +15,7 @@
     import { PADDING } from "$lib/data/theme";
 
     const solutionIcons = Object.values(routes.solutions.subRoutes);
+    const iconSize = PADDING * 6;
 </script>
 
 <Container size="medium">
@@ -22,7 +23,7 @@
         <HeadingTileContent>
             <Grid slot="Tile" columns="1fr 1fr">
                 {#each solutionIcons as { Icon }}
-                    <Icon font-size={PADDING * 6} />
+                    <Icon font-size={iconSize} />
                 {/each}
             </Grid>
             <svelte:fragment slot="Content">
@@ -32,6 +33,3 @@
         </HeadingTileContent>
     </Spacer>
 </Container>
-
-<style lang="scss">
-</style>

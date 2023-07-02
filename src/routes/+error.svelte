@@ -17,6 +17,7 @@
     /**********************************************************************************************************
      *   CONSTS
      **********************************************************************************************************/
+
     import SolarBugMinimalisticBoldDuotone from "~icons/solar/bug-minimalistic-bold-duotone";
     import { PADDING } from "$lib/data/theme";
 </script>
@@ -24,7 +25,7 @@
 <Container size="medium">
     <Spacer>
         <Grid columns="1fr 3fr" gap={6}>
-            <Tile ratio={0.8} error>
+            <Tile ratio={0.6} type="error">
                 <SolarBugMinimalisticBoldDuotone
                     font-size={PADDING * 6}
                 />
@@ -32,8 +33,8 @@
             <Flex direction="column" align="stretch">
                 <h1>
                     {$page.status}: {$page?.error?.message}
-                    <Bar />
                 </h1>
+                <Bar type="error" />
                 <h3>{$page.url.pathname}</h3>
             </Flex>
         </Grid>

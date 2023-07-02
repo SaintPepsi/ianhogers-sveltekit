@@ -27,7 +27,7 @@
 <Container size="medium">
     <Spacer>
         <Grid columns="2fr 4fr" gap={4}>
-            <Tile>
+            <Tile type="primary">
                 <Img
                     style={"width: 100%; height: auto;"}
                     {...IMAGE_profileShot}

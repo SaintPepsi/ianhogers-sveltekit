@@ -14,22 +14,18 @@
 }
 
 h1 {
-    @extend .on-background-text;
     @extend .headline-large;
 }
 
 h2 {
-    @extend .on-background-text;
     @extend .headline-medium;
 }
 
 h3 {
-    @extend .on-background-text;
     @extend .headline-small;
 }
 
 h4 {
-    @extend .on-background-text;
     @extend .title-large;
 }
 

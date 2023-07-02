@@ -1,8 +1,11 @@
 <script lang="ts">
+    /**********************************************************************************************************
+     *   UTILITIES
+     **********************************************************************************************************/
+    import { createThemeClasses, type ThemeType } from "$lib/utils";
+
     export let ratio: number = 0;
-    export let secondary: boolean = false;
-    export let tertiary: boolean = false;
-    export let error: boolean = false;
+    export let type: ThemeType;
     export let column: boolean = false;
     export let interactable: boolean = false;
 
@@ -10,16 +13,18 @@
         ? `padding-top: calc(100% * ${ratio});`
         : "";
     $: style = [ratioStyle].join("");
+
+    $: styleThemeClasses = type
+        ? createThemeClasses(type, interactable)
+        : "";
 </script>
 
 <div
-    class="Tile"
-    {style}
-    class:secondary
-    class:tertiary
-    class:error
+    class={styleThemeClasses}
+    class:Tile={1}
     class:column
     class:interactable
+    {style}
 >
     {#if ratio}
         <div class="ratioWrapper">
@@ -60,13 +65,6 @@
             }
         }
 
-        &.column {
-            flex-direction: column;
-
-            .ratioWrapper {
-                flex-direction: column;
-            }
-        }
         .ratioWrapper {
             position: absolute;
             top: 0;
@@ -76,32 +74,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        &.secondary {
-            @extend .secondary;
-            .ratioWrapper {
-                > :global(*) {
-                    @extend .on-secondary-text;
-                }
-            }
-        }
-
-        &.tertiary {
-            @extend .tertiary;
-            .ratioWrapper {
-                > :global(*) {
-                    @extend .on-tertiary-text;
-                }
-            }
-        }
-
-        &.error {
-            @extend .error;
-            .ratioWrapper {
-                > :global(*) {
-                    @extend .on-error-text;
-                }
-            }
         }
     }
 </style>

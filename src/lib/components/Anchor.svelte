@@ -7,7 +7,6 @@
 <style lang="scss">
     @import "$styles/theme.scss";
     a {
-        @extend .on-background-text;
         @extend .label-medium;
         text-decoration: none;
 

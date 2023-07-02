@@ -13,7 +13,7 @@
 </script>
 
 <Grid columns="1fr 3fr" gap={4}>
-    <Tile secondary ratio={1}>
+    <Tile type="secondary" ratio={1}>
         <slot name="Tile" />
     </Tile>
     <Flex direction="column" align="start" style={"height: 100%;"}>

@@ -16,7 +16,7 @@
     <title>Ian Hogers - Software Engineer</title>
 </svelte:head>
 
-<div class="Layout" data-theme={theme}>
+<div class="Layout on-background-text" data-theme={theme}>
     <Nav />
     <slot />
 </div>

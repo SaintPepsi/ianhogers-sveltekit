@@ -23,3 +23,20 @@ export function cssStringify(obj: {
         })
         .join("; ");
 }
+
+export type ThemeType =
+    | "primary"
+    | "secondary"
+    | "tertiary"
+    | "error";
+export function createThemeClasses(
+    type: ThemeType,
+    interactable: boolean,
+) {
+    const bgClass = `${type}${interactable ? "" : "-container"}`;
+    const textClass = `on-${bgClass}-text`;
+    console.log("bgClass", bgClass);
+    console.log("textClass", textClass);
+
+    return `${bgClass} ${textClass}`;
+}

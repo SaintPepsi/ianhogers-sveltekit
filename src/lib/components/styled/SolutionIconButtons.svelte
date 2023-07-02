@@ -3,6 +3,7 @@
      *   SHARED
      **********************************************************************************************************/
     import Anchor from "$components/Anchor.svelte";
+    import Flex from "$components/Flex.svelte";
     import Grid from "$components/Grid.svelte";
     import Tile from "$components/Tile.svelte";
 
@@ -23,9 +24,11 @@
 <Grid columns="1fr 1fr 1fr 1fr">
     {#each solutions as { route, Icon, title }}
         <Anchor href={route}>
-            <Tile ratio={0.6} secondary column interactable>
-                <Icon width={PADDING * 8} height={PADDING * 8} />
-                <h4>{title}</h4>
+            <Tile ratio={0.6} type="tertiary" interactable>
+                <Flex direction="column">
+                    <Icon width={PADDING * 8} height={PADDING * 8} />
+                    <h4>{title}</h4>
+                </Flex>
             </Tile>
         </Anchor>
     {/each}
