@@ -5,6 +5,7 @@
     import Anchor from "$components/Anchor.svelte";
     import Flex from "$components/Flex.svelte";
     import Grid from "$components/Grid.svelte";
+    import Span from "$components/Span.svelte";
     import Tile from "$components/Tile.svelte";
 
     /**********************************************************************************************************
@@ -27,7 +28,7 @@
             <Tile ratio={0.6} type="tertiary" interactable>
                 <Flex direction="column">
                     <Icon width={PADDING * 8} height={PADDING * 8} />
-                    <h4>{title}</h4>
+                    <Span size="large">{title}</Span>
                 </Flex>
             </Tile>
         </Anchor>
