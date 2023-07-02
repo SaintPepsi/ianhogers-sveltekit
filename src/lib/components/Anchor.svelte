@@ -7,6 +7,7 @@
 <style lang="scss">
     @import "$styles/theme.scss";
     a {
+        color: inherit;
         @extend .label-medium;
         text-decoration: none;
 

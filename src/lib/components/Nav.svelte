@@ -28,7 +28,7 @@
         class="favicon"
     />
     <Container size="medium">
-        <nav>
+        <nav class="on-background-text">
             {#each navItems as { route, title }}
                 <Anchor href={route}>{title}</Anchor>
             {/each}
