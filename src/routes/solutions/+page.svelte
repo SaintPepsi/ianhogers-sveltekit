@@ -87,7 +87,7 @@
 <style lang="scss">
     @import "$styles/theme.scss";
     .content {
-        padding: $padding * 3;
+        padding: $padding * 4;
         height: 100%;
 
         > :global(.Flex) {

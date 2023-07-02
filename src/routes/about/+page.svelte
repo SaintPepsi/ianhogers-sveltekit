@@ -51,7 +51,7 @@
 <Container size="medium">
     <Spacer top={4}>
         <Tile type="primary">
-            <Spacer top={4} bottom={4} left={4} right={4}>
+            <Spacer top={4} bottom={4} left={4} right={4} padding>
                 <Body>
                     <h3>About me</h3>
                     <p>
@@ -70,7 +70,7 @@
 
         <Spacer top={4} bottom={4}>
             <Tile type="secondary">
-                <Spacer top={4} bottom={4} left={4} right={4}>
+                <Spacer top={4} bottom={4} left={4} right={4} padding>
                     <Body>
                         <h3>My Drive</h3>
                         <p>
@@ -115,7 +115,7 @@
 
         <Spacer top={4} bottom={4}>
             <Tile type="tertiary">
-                <Spacer top={4} bottom={4} left={4} right={4}>
+                <Spacer top={4} bottom={4} left={4} right={4} padding>
                     <Flex align="center" direction="column">
                         <Flex justify="start">
                             <SolarPlainBoldDuotone
