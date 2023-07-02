@@ -37,7 +37,7 @@
             <Flex
                 direction="column"
                 align="start"
-                justify="end"
+                justify="center"
                 style={"height: 100%;"}
             >
                 <h2>Ian Hogers</h2>
@@ -45,7 +45,7 @@
                     Software Engineer
                     <Bar />
                 </h1>
-                <h3>Building Solutions to your needs</h3>
+                <h3>Custom software solutions</h3>
             </Flex>
         </Grid>
         <Spacer top={2}>
@@ -56,6 +56,7 @@
             </Grid>
         </Spacer>
     </Spacer>
+
     <Spacer>
         <div class="solutions">
             <h3>Solutions:</h3>

@@ -1,24 +1,36 @@
 <script lang="ts">
     /**********************************************************************************************************
-     *   SHARED
+     *   BASE IMPORT
      **********************************************************************************************************/
-    import Flex from "$components/Flex.svelte";
-    import Label from "$components/Label.svelte";
-    import Anchor from "$components/Anchor.svelte";
-
-    /**********************************************************************************************************
-     *   CONSTS
-     **********************************************************************************************************/
+    /********** Icons **********/
     import SolarMapPointWaveBoldDuotone from "~icons/solar/map-point-wave-bold-duotone";
     import TeenyiconsReactSolid from "~icons/teenyicons/react-solid";
     import TablerBrandSvelte from "~icons/tabler/brand-svelte";
     import IcBaselineWordpress from "~icons/ic/baseline-wordpress";
     import IcBaselineShopify from "~icons/ic/baseline-shopify";
+    import SolarCodeSquareBoldDuotone from "~icons/solar/code-square-bold-duotone";
+
+    /**********************************************************************************************************
+     *   SHARED
+     **********************************************************************************************************/
+    import Flex from "$components/Flex.svelte";
+    import Label from "$components/Label.svelte";
+    import Anchor from "$components/Anchor.svelte";
 </script>
 
 <Label>
     <Flex align="center">
         <SolarMapPointWaveBoldDuotone />
+        <Anchor
+            href="https://www.google.com/maps/place/Melbourne+VIC"
+        >
+            Melbourne
+        </Anchor>
+    </Flex>
+</Label>
+<Label>
+    <Flex align="center">
+        <SolarCodeSquareBoldDuotone />
         <Anchor href="https://nexigen.digital/">
             Nexigen Digital
         </Anchor>
