@@ -30,10 +30,10 @@
     @import "$styles/theme.scss";
 
     .Button {
-        display: flex;
+        display: inline-flex;
         padding: $padding $padding * 2;
         border-radius: $padding * 2;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
         gap: $padding;
     }

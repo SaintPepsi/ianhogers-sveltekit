@@ -18,3 +18,9 @@
 <div class="Spacer" {style}>
     <slot />
 </div>
+
+<style>
+    .Spacer {
+        width: 100%;
+    }
+</style>

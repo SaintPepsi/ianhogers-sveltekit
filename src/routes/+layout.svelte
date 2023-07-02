@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Footer from "$components/Footer.svelte";
     /**********************************************************************************************************
      *   SHARED
      **********************************************************************************************************/
@@ -16,9 +17,10 @@
     <title>Ian Hogers - Software Engineer</title>
 </svelte:head>
 
-<div class="Layout on-background-text" data-theme={theme}>
+<div class="Layout on-background-text body-medium" data-theme={theme}>
     <Nav />
     <slot />
+    <Footer />
 </div>
 
 <style lang="scss">
