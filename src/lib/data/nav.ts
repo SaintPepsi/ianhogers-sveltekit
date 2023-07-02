@@ -1,10 +1,7 @@
 /**********************************************************************************************************
  *   CONSTS
  **********************************************************************************************************/
-import SolarCartLarge2BoldDuotone from "~icons/solar/cart-large-2-bold-duotone";
-import SolarBoxMinimalisticBoldDuotone from "~icons/solar/box-minimalistic-bold-duotone";
-import SolarMonitorSmartphoneBoldDuotone from "~icons/solar/monitor-smartphone-bold-duotone";
-import SolarGamepadBoldDuotone from "~icons/solar/gamepad-bold-duotone";
+import { SOLUTIONS } from "./solutions";
 
 export const routes = {
     home: {
@@ -30,22 +27,22 @@ export const routes = {
             ecommerce: {
                 title: "Ecommerce",
                 route: "/solutions/ecommerce",
-                Icon: SolarCartLarge2BoldDuotone,
+                Icon: SOLUTIONS.ecommerce.Icon,
             },
             websites: {
                 title: "Websites",
                 route: "/solutions/websites",
-                Icon: SolarMonitorSmartphoneBoldDuotone,
+                Icon: SOLUTIONS.websites.Icon,
             },
             apps: {
                 title: "Apps",
                 route: "/solutions/apps",
-                Icon: SolarBoxMinimalisticBoldDuotone,
+                Icon: SOLUTIONS.apps.Icon,
             },
             games: {
                 title: "Games",
                 route: "/solutions/games",
-                Icon: SolarGamepadBoldDuotone,
+                Icon: SOLUTIONS.games.Icon,
             },
         },
     },

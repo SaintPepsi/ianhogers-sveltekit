@@ -10,6 +10,7 @@
     import { PADDING } from "$lib/data/theme";
 
     export let columns = "";
+    export let fullWidth = false;
     export let gap = 2;
 
     const style = cssStringify({
@@ -18,14 +19,17 @@
     });
 </script>
 
-<div class="Grid" {style}>
+<div class="Grid" {style} class:fullWidth>
     <slot />
 </div>
 
 <style lang="scss">
     .Grid {
-        width: 100%;
         display: grid;
         align-items: center;
+
+        &.fullWidth {
+            width: 100%;
+        }
     }
 </style>

@@ -1,4 +1,4 @@
-const px = (val: number | string) => `${val}px`;
+export const px = (val: number | string) => `${val}px`;
 
 export function cssStringify(obj: {
     [key: string]: string | number;

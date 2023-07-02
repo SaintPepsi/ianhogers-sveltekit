@@ -37,9 +37,6 @@
         position: relative;
         border-radius: $padding;
         overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         transition: all 0.15s ease-in-out;
 
         box-shadow: 0.3px 0.3px 2.2px rgba(0, 0, 0, 0.014),

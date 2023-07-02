@@ -49,7 +49,7 @@
     style:display="flex"
     style:gap={gap ? `${gap * PADDING}px` : ""}
     style:flex-direction={directionWithReverse}
-    style:flex-wrap={wrap}
+    style:flex-wrap={wrap === "no-wrap" ? "" : wrap}
     style:align-items={alignMap[align]}
     style:justify-content={justifyMap[justify]}
 >

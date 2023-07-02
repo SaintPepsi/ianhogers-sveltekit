@@ -51,12 +51,6 @@
         min-height: $padding * 8;
     }
 
-    nav {
-        :global(> *) {
-            margin-right: $padding * 3;
-        }
-    }
-
     .favicon {
         position: absolute;
     }

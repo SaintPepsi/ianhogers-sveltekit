@@ -30,6 +30,9 @@
             <svelte:fragment slot="Content">
                 <h1>Projects</h1>
                 <Bar {type} />
+                <h4>
+                    Have a look at some of my recent projects below!
+                </h4>
             </svelte:fragment>
         </HeadingTileContent>
     </Spacer>
