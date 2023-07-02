@@ -10,6 +10,8 @@
      **********************************************************************************************************/
     import favIcon from "/images/favicon.png";
     import { routes } from "$lib/data/nav";
+    import ContactButton from "./styled/ContactButton.svelte";
+    import Flex from "./Flex.svelte";
 
     const navItems = [
         routes.home,
@@ -29,9 +31,14 @@
     />
     <Container size="medium">
         <nav class="on-background-text">
-            {#each navItems as { route, title }}
-                <Anchor href={route}>{title}</Anchor>
-            {/each}
+            <Flex justify="between">
+                <Flex align="center" gap={3}>
+                    {#each navItems as { route, title }}
+                        <Anchor href={route}>{title}</Anchor>
+                    {/each}
+                </Flex>
+                <ContactButton />
+            </Flex>
         </nav>
     </Container>
 </div>
@@ -40,8 +47,6 @@
     @import "$styles/theme.scss";
     .nav-wrapper {
         position: relative;
-        display: flex;
-        align-items: center;
         padding: $padding $padding * 2;
         min-height: $padding * 8;
     }

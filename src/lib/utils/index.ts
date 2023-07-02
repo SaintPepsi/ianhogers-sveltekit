@@ -24,7 +24,9 @@ export function cssStringify(obj: {
         .join("; ");
 }
 
+export type ThemeFontSize = "small" | "medium" | "large";
 export type ThemeType =
+    | "background"
     | "primary"
     | "secondary"
     | "tertiary"
@@ -33,10 +35,9 @@ export function createThemeClasses(
     type: ThemeType,
     interactable: boolean,
 ) {
+    if (!type) return "";
     const bgClass = `${type}${interactable ? "" : "-container"}`;
     const textClass = `on-${bgClass}-text`;
-    console.log("bgClass", bgClass);
-    console.log("textClass", textClass);
 
     return `${bgClass} ${textClass}`;
 }

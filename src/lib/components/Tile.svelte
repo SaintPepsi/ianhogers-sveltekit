@@ -13,14 +13,10 @@
         ? `padding-top: calc(100% * ${ratio});`
         : "";
     $: style = [ratioStyle].join("");
-
-    $: styleThemeClasses = type
-        ? createThemeClasses(type, interactable)
-        : "";
 </script>
 
 <div
-    class={styleThemeClasses}
+    class={createThemeClasses(type, interactable)}
     class:Tile={1}
     class:column
     class:interactable

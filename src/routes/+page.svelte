@@ -22,6 +22,7 @@
      **********************************************************************************************************/
     /********** Images **********/
     import { IMAGE_profileShot } from "$lib/assets/images";
+    import ContactButton from "$components/styled/ContactButton.svelte";
 </script>
 
 <Container size="medium">

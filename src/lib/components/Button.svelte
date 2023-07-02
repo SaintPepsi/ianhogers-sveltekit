@@ -1,13 +1,27 @@
 <script lang="ts">
+    import {
+        createThemeClasses,
+        type ThemeFontSize,
+        type ThemeType,
+    } from "$lib/utils";
+
     export let href: string;
+    export let type: ThemeType = "background";
+    export let size: ThemeFontSize = "medium";
+
+    $: classes = [
+        "Button",
+        createThemeClasses(type, true),
+        `label-${size}`,
+    ].join(" ");
 </script>
 
 {#if href}
-    <a {href} class="Button">
+    <a {href} class={classes}>
         <slot />
     </a>
 {:else}
-    <button type="button" class="Button">
+    <button type="button" class={classes}>
         <slot />
     </button>
 {/if}
@@ -16,15 +30,12 @@
     @import "$styles/theme.scss";
 
     .Button {
-        @extend .primary;
-        @extend .on-primary-text;
-        @extend .label-medium;
-
         display: flex;
-        padding: $padding * 2;
+        padding: $padding $padding * 2;
         border-radius: $padding * 2;
         justify-content: center;
         align-items: center;
+        gap: $padding;
     }
 
     a {
