@@ -1,5 +1,11 @@
 <script lang="ts">
     /**********************************************************************************************************
+     *   BASE IMPORT
+     **********************************************************************************************************/
+    /********** Icons **********/
+    import SolarAltArrowRightBold from "~icons/solar/alt-arrow-right-bold";
+
+    /**********************************************************************************************************
      *   SHARED
      **********************************************************************************************************/
     import Anchor from "$components/Anchor.svelte";
@@ -22,15 +28,40 @@
     ];
 </script>
 
-<Grid columns="1fr 1fr 1fr 1fr">
-    {#each solutions as { route, Icon, title }}
-        <Anchor href={route}>
-            <Tile ratio={0.6} type="tertiary" interactable>
-                <Flex direction="column">
-                    <Icon width={PADDING * 8} height={PADDING * 8} />
-                    <Span size="large">{title}</Span>
-                </Flex>
-            </Tile>
-        </Anchor>
-    {/each}
-</Grid>
+<div class="SolutionIconButtons">
+    <Grid columns="1fr 1fr 1fr 1fr">
+        {#each solutions as { route, Icon, title }}
+            <Anchor href={route}>
+                <Tile ratio={0.6} type="tertiary" interactable>
+                    <Flex direction="column">
+                        <Icon
+                            width={PADDING * 8}
+                            height={PADDING * 8}
+                        />
+                        <Flex align="center" gap={0.5}>
+                            <Span size="large">
+                                {title}
+                            </Span>
+                            <SolarAltArrowRightBold
+                                class="IconOverride"
+                            />
+                        </Flex>
+                    </Flex>
+                </Tile>
+            </Anchor>
+        {/each}
+    </Grid>
+</div>
+
+<style lang="scss">
+    @import "$styles/theme.scss";
+    .SolutionIconButtons {
+        :global(.Flex) {
+            :global(.IconOverride) {
+                position: absolute;
+                right: -$padding * 0.5;
+                transform: translate(100%, 0);
+            }
+        }
+    }
+</style>

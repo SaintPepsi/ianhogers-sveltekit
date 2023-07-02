@@ -14,7 +14,7 @@
     import { routes } from "$lib/data/nav";
     import { PADDING } from "$lib/data/theme";
 
-    const type = "tertiary";
+    const type = "primary";
     const solutionIcons = Object.values(routes.solutions.subRoutes);
     const iconSize = PADDING * 6;
 </script>
@@ -28,7 +28,7 @@
                 {/each}
             </Grid>
             <svelte:fragment slot="Content">
-                <h1>Solutions</h1>
+                <h1>Projects</h1>
                 <Bar {type} />
             </svelte:fragment>
         </HeadingTileContent>

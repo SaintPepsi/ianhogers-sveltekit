@@ -1,5 +1,6 @@
 <script lang="ts">
     import { PADDING } from "$lib/data/theme";
+    import { classes } from "$lib/utils";
 
     type Align = "start" | "center" | "end" | "stretch";
     type Justify =
@@ -44,7 +45,7 @@
 
 <div
     {...$$restProps}
-    class={$$restProps.class}
+    class={classes("Flex", $$restProps.class)}
     style:display="flex"
     style:gap={gap ? `${gap * PADDING}px` : ""}
     style:flex-direction={directionWithReverse}
@@ -54,3 +55,9 @@
 >
     <slot />
 </div>
+
+<style lang="scss">
+    .Flex {
+        position: relative;
+    }
+</style>
