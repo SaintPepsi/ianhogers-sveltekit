@@ -2,22 +2,28 @@
     "extends": "./.svelte-kit/tsconfig.json",
     "compilerOptions": {
         "moduleResolution": "node",
-		"module": "es2020",
-		"lib": ["es2020"],
-		"target": "es2019",
-		"isolatedModules": true,
+        "module": "es2020",
+        "lib": ["es2020"],
+        "target": "es2019",
+        "isolatedModules": true,
         /**
 			To have warnings/errors of the Svelte compiler at the correct position,
 			enable source maps by default.
 			*/
-		"sourceMap": true,
+        "sourceMap": true,
         "allowJs": true,
         "checkJs": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
         "skipLibCheck": true,
-        "strict": true
+        "strict": true,
+        "paths": {
+            "$lib":["./src/lib"],
+            "$lib/*":["./src/lib/*"],
+            "$styles/*": ["./src/lib/styles/*"],
+            "$components/*": ["./src/lib/components/*"],
+        }
     }
 
     // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias

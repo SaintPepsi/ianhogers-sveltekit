@@ -7,26 +7,6 @@
         created_time: string;
         last_edited_time: string;
     };
-
-    import type { PageLoad } from "./$types";
-
-    /**
-     * @type {import('@sveltejs/kit').PageLoad}
-     */
-    export async function load({ fetch }): PageLoad {
-        const res = await fetch("/index.json");
-        if (res.ok) {
-            return {
-                props: {
-                    result: await res.json(),
-                },
-            };
-        }
-        return {
-            status: res.status,
-            error: new Error(`Could not load database`),
-        };
-    }
 </script>
 
 <script lang="ts">
@@ -65,6 +45,15 @@
     title="Svelte Notion Kit"
     description="Brings your Notion pages to SvelteKit"
 />
+
+<section class="">
+    {#each result.result as notionItem}
+        <PostPreview
+            id={notionItem.id}
+            props={notionItem.properties}
+        />
+    {/each}
+</section>
 
 <Container size="medium">
     <Spacer>
