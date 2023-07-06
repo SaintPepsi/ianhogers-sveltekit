@@ -1,15 +1,9 @@
 // import { getDatabase } from "$lib/utils/notion";
 
-import { getDatabase } from "$lib/utils/notion";
-import { appConfig } from "$lib/data/config.server";
+import { getDatabase } from "$lib/utils/notion/api";
 
 export const load = async () => {
-    const result = await getDatabase(
-        appConfig.notion.projectsDatabaseID,
-    );
-    return {
-        body: {
-            result,
-        },
-    };
+    const data = await getDatabase("projects");
+
+    return data;
 };

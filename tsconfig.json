@@ -22,6 +22,8 @@
             "$lib/*":["./src/lib/*"],
             "$styles/*": ["./src/lib/styles/*"],
             "$components/*": ["./src/lib/components/*"],
+            "$data/*": ["./src/lib/data/*"],
+            "$utils/*": ["./src/lib/utils/*"],
         }
         
     }

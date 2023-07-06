@@ -14,6 +14,7 @@
      *   BASE IMPORT
      **********************************************************************************************************/
     import SvelteSeo from "svelte-seo";
+    import { isFullBlock, isFullPage } from "@notionhq/client";
 
     /**********************************************************************************************************
      *   SHARED
@@ -30,15 +31,25 @@
     import { routes } from "$lib/data/nav";
     import { PADDING } from "$lib/data/theme";
 
-    import PostPreview from "$components/notion/PostPreview.svelte";
+    import NotionBlock from "$lib/components/notion/NotionBlock.svelte";
 
-    export let result: {
-        result: Array<NotionItem>;
-    };
+    export let data;
+
+    console.log("data", data);
 
     const type = "primary";
     const solutionIcons = Object.values(routes.solutions.subRoutes);
     const iconSize = PADDING * 6;
+
+    for (const page of data.results) {
+        if (!isFullPage(page)) {
+            continue;
+        }
+        // The page variable has been narrowed from PageObjectResponse | PartialPageObjectResponse to PageObjectResponse.
+        console.log("Created at:", page.created_time);
+
+        page.properties;
+    }
 </script>
 
 <SvelteSeo
@@ -46,14 +57,13 @@
     description="Brings your Notion pages to SvelteKit"
 />
 
-<section class="">
-    {#each result.result as notionItem}
-        <PostPreview
-            id={notionItem.id}
-            props={notionItem.properties}
-        />
+<!-- <section class="">
+    {#each results as notionItem}
+        {#if isFullPage(notionItem)}
+            <NotionBlock block={notionItem.properties} />
+        {/if}
     {/each}
-</section>
+</section> -->
 
 <Container size="medium">
     <Spacer>

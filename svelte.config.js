@@ -30,6 +30,8 @@ const config = {
         alias: {
             $components: "./src/lib/components",
             $styles: "./src/lib/styles",
+            $data: "./src/lib/data",
+            $utils: "./src/lib/utils",
         },
     },
 };

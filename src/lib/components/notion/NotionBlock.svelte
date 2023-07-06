@@ -1,7 +1,3 @@
-<script context="module" lang="ts">
-    import type { Block } from "$lib/utils/notion/notion.types";
-</script>
-
 <script lang="ts">
     import NotionBlockTitle from "./NotionBlockTitle.svelte";
     import NotionBlockHeading from "./NotionBlockHeading.svelte";
@@ -12,11 +8,15 @@
     import NotionBlockNumberedList from "./NotionBlockNumberedList.svelte";
     import NotionBlockBulletedList from "./NotionBlockBulletedList.svelte";
     import NotionBlockToggleList from "./NotionBlockToggleList.svelte";
+    import type { Block } from "$lib/data/notion";
+    import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
     export let block: Block;
+
+    console.log("block", block);
 </script>
 
-{#if block.type == "title"}
+<!-- {#if properties.type === "title"}
     <NotionBlockTitle block={block[block.type]} />
 {:else if block.type == "heading_1" || block.type == "heading_2" || block.type == "heading_3"}
     <NotionBlockHeading block={block[block.type]} type={block.type} />
@@ -35,5 +35,5 @@
 {:else if block.type == "toggle"}
     <NotionBlockToggleList {block} />
 {:else}
-    <!-- handle more types (to_do)  -->
-{/if}
+"HMMMMM "
+{/if} -->
