@@ -2,6 +2,7 @@ import {
     PROJECTS_DATABASE_ID,
     NOTION_TOKEN,
 } from "$env/static/private";
+
 export const appConfig = {
     notion: {
         token: String(NOTION_TOKEN),

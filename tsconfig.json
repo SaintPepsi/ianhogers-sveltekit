@@ -1,7 +1,6 @@
 {
     "extends": "./.svelte-kit/tsconfig.json",
     "compilerOptions": {
-        "moduleResolution": "node",
         "module": "es2020",
         "lib": ["es2020"],
         "target": "es2019",
@@ -24,6 +23,7 @@
             "$styles/*": ["./src/lib/styles/*"],
             "$components/*": ["./src/lib/components/*"],
         }
+        
     }
 
     // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
