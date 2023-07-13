@@ -1,22 +1,29 @@
-<script context="module" lang="ts">
-    import type { BlockRichText } from './notion.types'
-</script>
-
 <script lang="ts">
-    export let block: Array<BlockRichText>
+    import type {
+        RichTextItemResponse,
+        TextRichTextItemResponse,
+    } from "@notionhq/client/build/src/api-endpoints";
+
+    export let block: RichTextItemResponse;
 </script>
 
-{#each block as blockItem}
-    <span class:bold={blockItem.annotations.bold}
-    class:italic={blockItem.annotations.italic}
-    class:strikethrough={blockItem.annotations.strikethrough}
-    class:underline={blockItem.annotations.underline}
-    class:code={blockItem.annotations.code}
-    class="{blockItem.annotations.color !== 'default' ? blockItem.annotations.color : ''} notion__block-type notion__rich-text-item">
-        {#if blockItem.text.link}
-            <a href={blockItem.text.link.url} title={blockItem.text.content}>{blockItem.text.content}</a>
+<span
+    class:bold={block.annotations.bold}
+    class:italic={block.annotations.italic}
+    class:strikethrough={block.annotations.strikethrough}
+    class:underline={block.annotations.underline}
+    class:code={block.annotations.code}
+    class="{block.annotations.color !== 'default'
+        ? block.annotations.color
+        : ''} notion__block-type notion__rich-text-item"
+>
+    {#if block.type === "text"}
+        {#if block.text.link}
+            <a href={block.text.link.url} title={block.text.content}
+                >{block.text.content}</a
+            >
         {:else}
-            {blockItem.text.content}
+            {block.text.content}
         {/if}
-    </span>
-{/each}
+    {/if}
+</span>

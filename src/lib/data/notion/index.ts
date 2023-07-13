@@ -6,7 +6,13 @@ import type {
     TitlePropertyItemObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 
-export type Block = PageObjectResponse["properties"];
+export type Block = Extract<
+    PageObjectResponse["properties"]["string"],
+    any
+>;
+export type BlockTypes = Block["type"];
+export type TitleBlock = Extract<Block, { type: "title" }>;
+export type FilesBlock = Extract<Block, { type: "files" }>;
 
 export interface ProjectDatabase {
     full_name: RichTextPropertyItemObjectResponse;
@@ -19,7 +25,3 @@ export interface ProjectDatabase {
 }
 
 export type ProjectDatabaseKeys = keyof ProjectDatabase;
-
-function isProjectProperties(
-    properties: PageObjectResponse["properties"],
-) {}

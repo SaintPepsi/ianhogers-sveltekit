@@ -32,6 +32,9 @@
     import { PADDING } from "$lib/data/theme";
 
     import NotionBlock from "$lib/components/notion/NotionBlock.svelte";
+    import Tile from "$lib/components/Tile.svelte";
+    import NotionBlockFiles from "$lib/components/notion/NotionBlockFiles.svelte";
+    import { MetaTypes } from "$lib/data/meta.js";
 
     export let data;
 
@@ -40,16 +43,6 @@
     const type = "primary";
     const solutionIcons = Object.values(routes.solutions.subRoutes);
     const iconSize = PADDING * 6;
-
-    for (const page of data.results) {
-        if (!isFullPage(page)) {
-            continue;
-        }
-        // The page variable has been narrowed from PageObjectResponse | PartialPageObjectResponse to PageObjectResponse.
-        console.log("Created at:", page.created_time);
-
-        page.properties;
-    }
 </script>
 
 <SvelteSeo
@@ -57,13 +50,7 @@
     description="Brings your Notion pages to SvelteKit"
 />
 
-<!-- <section class="">
-    {#each results as notionItem}
-        {#if isFullPage(notionItem)}
-            <NotionBlock block={notionItem.properties} />
-        {/if}
-    {/each}
-</section> -->
+<section class="" />
 
 <Container size="medium">
     <Spacer>
@@ -81,5 +68,28 @@
                 </h4>
             </svelte:fragment>
         </HeadingTileContent>
+    </Spacer>
+</Container>
+
+<Container size="medium">
+    <Spacer>
+        <Grid columns="repeat(4, 1fr)">
+            {#each data.results as result}
+                {#if isFullPage(result)}
+                    <Tile type="primary" ratio={1}>
+                        <NotionBlock
+                            block={result.properties.logo}
+                            meta={[
+                                {
+                                    type: MetaTypes.ALT,
+                                    value: "Logo",
+                                },
+                            ]}
+                        />
+                    </Tile>
+                    <NotionBlock block={result.properties.name} />
+                {/if}
+            {/each}
+        </Grid>
     </Spacer>
 </Container>
