@@ -5,6 +5,7 @@
     import { createThemeClasses, type ThemeType } from "$lib/utils";
 
     export let ratio: number = 0;
+    export let fullWidth: boolean = false;
     export let type: ThemeType;
     export let column: boolean = false;
     export let interactable: boolean = false;
@@ -20,6 +21,7 @@
     class:Tile={1}
     class:column
     class:interactable
+    class:fullWidth
     {style}
 >
     {#if ratio}
@@ -56,6 +58,10 @@
                     2.1px 2.1px 33.4px rgba(0, 0, 0, 0.108),
                     5px 5px 80px rgba(0, 0, 0, 0.15);
             }
+        }
+
+        &.fullWidth {
+            width: 100%;
         }
 
         .ratioWrapper {
