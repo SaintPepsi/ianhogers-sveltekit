@@ -17,11 +17,11 @@
 </script>
 
 {#if href}
-    <a {href} class={classes}>
+    <a {href} class={classes} {...$$restProps}>
         <slot />
     </a>
 {:else}
-    <button type="button" class={classes}>
+    <button type="button" class={classes} {...$$restProps}>
         <slot />
     </button>
 {/if}
