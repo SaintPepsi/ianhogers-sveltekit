@@ -2,8 +2,10 @@
     /**********************************************************************************************************
      *   BASE IMPORT
      **********************************************************************************************************/
+    import Img from "@zerodevx/svelte-img";
     import SvelteSeo from "svelte-seo";
     /********** Icons **********/
+    import SolarAltArrowRightBold from "~icons/solar/alt-arrow-right-bold";
 
     /**********************************************************************************************************
      *   SHARED
@@ -22,8 +24,9 @@
 
     import Tile from "$lib/components/Tile.svelte";
     import Flex from "$lib/components/Flex.svelte";
-
-    export let data;
+    import { projects } from "$lib/data/projects";
+    import Label from "$lib/components/Label.svelte";
+    import Button from "$lib/components/Button.svelte";
 
     const type = "primary";
     const solutionIcons = Object.values(routes.solutions.subRoutes);
@@ -56,16 +59,34 @@
     </Spacer>
 </Container>
 
-<Container size="medium">
+<Container>
     <Spacer>
+        <!-- <Grid columns="1fr 1fr"> -->
         <Grid columns="1fr 1fr">
-            {#each data.results as result}
-                <Grid columns="1fr 4fr" fullWidth>
-                    <Tile type="primary" ratio={1}>tile</Tile>
+            {#each projects as project}
+                <Grid columns="1fr 4fr auto" fullWidth>
+                    <Tile type="primary" ratio={1}>
+                        <Img
+                            style={"width: 100%; height: auto; object-fit: cover;"}
+                            {...project.logo}
+                        />
+                    </Tile>
                     <Flex direction="column" align="start">
-                        <h4>title</h4>
-                        <Bar {type} />
-                        <Flex>tags?</Flex>
+                        <h4>{project.name}</h4>
+                        <Flex wrap="wrap" justify="start">
+                            {#each project.tags as tag}
+                                <Label type="tertiary" size="small">
+                                    {tag}
+                                </Label>
+                            {/each}
+                        </Flex>
+                        <Button
+                            type="secondary"
+                            href={`/projects/${project.nav_title}`}
+                        >
+                            View Project
+                            <SolarAltArrowRightBold />
+                        </Button>
                     </Flex>
                 </Grid>
             {/each}
