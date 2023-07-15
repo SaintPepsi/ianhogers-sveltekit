@@ -14,6 +14,11 @@
     import Container from "$components/Container.svelte";
     import Grid from "$components/Grid.svelte";
     import Spacer from "$components/Spacer.svelte";
+    import Tile from "$lib/components/Tile.svelte";
+    import Flex from "$lib/components/Flex.svelte";
+    import Label from "$lib/components/Label.svelte";
+    import Button from "$lib/components/Button.svelte";
+    /********** SHARED Styled **********/
     import HeadingTileContent from "$components/styled/HeadingTileContent.svelte";
 
     /**********************************************************************************************************
@@ -22,11 +27,7 @@
     import { routes } from "$lib/data/nav";
     import { PADDING } from "$lib/data/theme";
 
-    import Tile from "$lib/components/Tile.svelte";
-    import Flex from "$lib/components/Flex.svelte";
     import { projects } from "$lib/data/projects";
-    import Label from "$lib/components/Label.svelte";
-    import Button from "$lib/components/Button.svelte";
 
     const type = "primary";
     const solutionIcons = Object.values(routes.solutions.subRoutes);
