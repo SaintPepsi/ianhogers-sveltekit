@@ -1,3 +1,14 @@
+<script lang="ts" context="module">
+    import type { PostPreviewProps } from "$components/notion/PostPreview.svelte";
+
+    type NotionItem = {
+        id: string;
+        properties: PostPreviewProps;
+        created_time: string;
+        last_edited_time: string;
+    };
+</script>
+
 <script lang="ts">
     /**********************************************************************************************************
      *   BASE IMPORT
@@ -6,6 +17,7 @@
     import SvelteSeo from "svelte-seo";
     /********** Icons **********/
     import SolarAltArrowRightBold from "~icons/solar/alt-arrow-right-bold";
+    // import { isFullBlock, isFullPage } from "@notionhq/client";
 
     /**********************************************************************************************************
      *   SHARED
@@ -27,8 +39,9 @@
     import { routes } from "$lib/data/nav";
     import { PADDING } from "$lib/data/theme";
 
-    import { projects } from "$lib/data/projects";
+    export let data;
 
+    console.log("data", data);
     const type = "primary";
     const solutionIcons = Object.values(routes.solutions.subRoutes);
     const iconSize = PADDING * 6;
@@ -52,9 +65,9 @@
             <svelte:fragment slot="Content">
                 <h1>Projects</h1>
                 <Bar {type} />
-                <h3>
+                <h4>
                     Have a look at some of my recent projects below!
-                </h3>
+                </h4>
             </svelte:fragment>
         </HeadingTileContent>
     </Spacer>
@@ -62,8 +75,7 @@
 
 <Container>
     <Spacer>
-        <!-- <Grid columns="1fr 1fr"> -->
-        <Grid columns="1fr 1fr">
+        <!-- <Grid columns="1fr 1fr">
             {#each projects as project}
                 <Grid columns="1fr 4fr auto" fullWidth>
                     <Tile type="primary" ratio={1}>
@@ -91,12 +103,24 @@
                     </Flex>
                 </Grid>
             {/each}
-        </Grid>
+        </Grid> -->
+        <!-- <Grid columns="repeat(4, 1fr)">
+             {#each data.results as result}
+                 {#if isFullPage(result)}
+                     <Tile type="primary" ratio={1}>
+                         <NotionBlock
+                             block={result.properties.logo}
+                             meta={[
+                                 {
+                                     type: MetaTypes.ALT,
+                                     value: "Logo",
+                                 },
+                             ]}
+                         />
+                     </Tile>
+                     <NotionBlock block={result.properties.name} />
+                 {/if}
+             {/each}
+         </Grid> -->
     </Spacer>
 </Container>
-
-<style>
-    h4 {
-        text-align: center;
-    }
-</style>
