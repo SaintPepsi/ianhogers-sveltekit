@@ -1,9 +1,4 @@
 /**********************************************************************************************************
- *   BASE IMPORT
- **********************************************************************************************************/
-import { isFullPage } from "@notionhq/client";
-
-/**********************************************************************************************************
  *   UTILITIES
  **********************************************************************************************************/
 import { fetchedDatabases, getDatabase } from "$lib/utils/notion/api";
@@ -11,13 +6,7 @@ import { fetchedDatabases, getDatabase } from "$lib/utils/notion/api";
 /**********************************************************************************************************
  *   CONSTS
  **********************************************************************************************************/
-import type {
-    ControlledQueryDatabaseResponse,
-    MyDatabaseProperties,
-    MyDatabasePropertiesData,
-    MyNotionDatabaseKeys,
-} from "$data/notion/databases";
-import { isControlledFullPage } from "$utils/notion/methods";
+import type { MyNotionDatabaseKeys } from "$data/notion/databases";
 import type {
     Block,
     BlockRecord,

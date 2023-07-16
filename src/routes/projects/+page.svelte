@@ -109,12 +109,6 @@
                      <Tile type="primary" ratio={1}>
                          <NotionBlock
                              block={result.properties.logo}
-                             meta={[
-                                 {
-                                     type: MetaTypes.ALT,
-                                     value: "Logo",
-                                 },
-                             ]}
                          />
                      </Tile>
                      <NotionBlock block={result.properties.name} />
