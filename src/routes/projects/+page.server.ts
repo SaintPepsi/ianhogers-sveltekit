@@ -1,7 +1,5 @@
-import { getDatabase } from "$lib/utils/notion/api";
+import { getCollatedDatabase } from "$utils/notion/databaseCollator";
 
 export const load = async () => {
-    const data = await getDatabase("projects");
-
-    return data;
+    return await getCollatedDatabase("projects");
 };

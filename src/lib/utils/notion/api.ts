@@ -1,11 +1,16 @@
+/**********************************************************************************************************
+ *   BASE IMPORT
+ **********************************************************************************************************/
+import { error } from "@sveltejs/kit";
 import { Client, isFullPage } from "@notionhq/client";
-import { notionDatabases } from "$lib/data/notion/config";
-import type {
-    MyDatabases,
-    ControlledQueryDatabaseResponse,
-    MyNotionDatabaseKeys,
-} from "$lib/data/notion/databases";
 import { NOTION_TOKEN } from "$env/static/private";
+
+/**********************************************************************************************************
+ *   CONSTS
+ **********************************************************************************************************/
+import { registeredNotionDatabases } from "$lib/data/notion/config";
+import type { MyNotionDatabaseKeys } from "$data/notion/databases";
+import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
 /**
  * Initialize the Notion client
@@ -14,17 +19,37 @@ export const notionClient = new Client({
     auth: NOTION_TOKEN,
 });
 
+type FetchedDatabaseResponses = {
+    [key in MyNotionDatabaseKeys]?: PageObjectResponse[];
+};
+export const fetchedDatabases: FetchedDatabaseResponses = {};
+
 /**
- * Notion's DB to pull
- * @param database_id
- * @returns
+ * Fetches the database from Notion
  */
 export async function getDatabase<T extends MyNotionDatabaseKeys>(
-    database_id: T,
-): Promise<ControlledQueryDatabaseResponse<T>> {
-    return await notionClient.databases.query({
-        database_id: notionDatabases[database_id],
+    database_name: T,
+): Promise<PageObjectResponse[]> {
+    /**
+     * Check if the database exists in the registered databases
+     */
+    if (!Object.hasOwn(registeredNotionDatabases, database_name)) {
+        throw error(
+            500,
+            `Database ${database_name} does not exist in registered databases`,
+        );
+    }
+
+    const databaseData = await notionClient.databases.query({
+        database_id: registeredNotionDatabases[database_name],
     });
+
+    const cleanedDatabaseData =
+        databaseData.results.filter(isFullPage);
+
+    fetchedDatabases[database_name] = cleanedDatabaseData;
+
+    return cleanedDatabaseData;
 }
 
 /**

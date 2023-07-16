@@ -17,7 +17,7 @@
     import SvelteSeo from "svelte-seo";
     /********** Icons **********/
     import SolarAltArrowRightBold from "~icons/solar/alt-arrow-right-bold";
-    // import { isFullBlock, isFullPage } from "@notionhq/client";
+    import { isFullBlock, isFullPage } from "@notionhq/client";
 
     /**********************************************************************************************************
      *   SHARED
@@ -38,7 +38,6 @@
      **********************************************************************************************************/
     import { routes } from "$lib/data/nav";
     import { PADDING } from "$lib/data/theme";
-
     export let data;
 
     console.log("data", data);
