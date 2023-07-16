@@ -1,6 +1,6 @@
 <script lang="ts">
     import NotionBlockRichText from "$lib/components/notion/NotionBlockRichText.svelte";
-    import type { TitleBlock } from "$lib/data/notion";
+    import type { TitleBlock } from "$utils/notion";
 
     export let block: TitleBlock;
     $: title = block.title;

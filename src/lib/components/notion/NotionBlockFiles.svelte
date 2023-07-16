@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { FilesBlock } from "$lib/data/notion";
+    import type { FilesBlock } from "$utils/notion";
 
     export let block: FilesBlock;
 </script>

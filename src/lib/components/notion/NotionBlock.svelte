@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
     import type { SvelteComponent } from "svelte";
-    import type { BlockTypes } from "$lib/data/notion";
+    import type { BlockTypes } from "$utils/notion";
     import NotionBlockTitle from "./NotionBlockTitle.svelte";
 
     type NotionBlockTypes = {
@@ -22,7 +22,7 @@
     // import NotionBlockBulletedList from "./NotionBlockBulletedList.svelte";
     // import NotionBlockToggleList from "./NotionBlockToggleList.svelte";
 
-    import type { Block } from "$lib/data/notion";
+    import type { Block } from "$utils/notion";
     import NotionBlockFiles from "$lib/components/notion/NotionBlockFiles.svelte";
     import type { Meta } from "$lib/data/meta";
 
