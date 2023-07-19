@@ -13,7 +13,7 @@
 
 <div class="Footer background on-background-text">
     <Flex>
-        Build with
+        Built with
         <Anchor href="https://kit.svelte.dev/">
             <Flex>
                 SvelteKit <TablerBrandSvelte />
