@@ -1,10 +1,5 @@
 <script lang="ts">
     /**********************************************************************************************************
-     *   BASE IMPORT
-     **********************************************************************************************************/
-    import Img from "@zerodevx/svelte-img";
-
-    /**********************************************************************************************************
      *   SHARED
      **********************************************************************************************************/
     import Bar from "$components/Bar.svelte";
@@ -17,29 +12,13 @@
     /********** SHARED Styled **********/
     import SolutionIconButtons from "$components/styled/SolutionIconButtons.svelte";
     import CoreTechLabels from "$components/styled/CoreTechLabels.svelte";
-
-    /**********************************************************************************************************
-     *   CONSTS
-     **********************************************************************************************************/
-    /********** Images **********/
-    import { IMAGE_profileShot } from "$lib/assets/images";
 </script>
 
 <Container size="medium">
     <Spacer>
-        <Grid columns="2fr 4fr" gap={2}>
-            <Tile type="primary" ratio={1}>
-                <Img
-                    style={"width: 100%; height: auto;"}
-                    {...IMAGE_profileShot}
-                />
-            </Tile>
-            <Flex
-                direction="column"
-                align="start"
-                justify="center"
-                style={"height: 100%;"}
-            >
+        <Grid columns="1fr 3fr" gap={2}>
+            <Tile type="primary" ratio={1}>Something nice here</Tile>
+            <Flex direction="column" align="start" justify="center" style={"height: 100%;"}>
                 <h2>Ian Hogers</h2>
                 <h1>
                     Software Engineer
@@ -61,12 +40,6 @@
         <div class="solutions">
             <h3>Solutions:</h3>
             <SolutionIconButtons />
-        </div>
-    </Spacer>
-
-    <Spacer>
-        <div class="projects">
-            <h3>Projects:</h3>
         </div>
     </Spacer>
 </Container>
