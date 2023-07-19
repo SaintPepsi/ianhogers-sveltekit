@@ -38,6 +38,7 @@
      **********************************************************************************************************/
     import { routes } from "$lib/data/nav";
     import { PADDING } from "$lib/data/theme";
+    import ProjectsOverviewItem from "$components/styled/ProjectsOverviewItem.svelte";
     export let data;
 
     console.log("data", data);
@@ -74,46 +75,12 @@
 
 <Container>
     <Spacer>
-        <!-- <Grid columns="1fr 1fr">
-            {#each projects as project}
+        <Grid columns="1fr 1fr">
+            {#each data.projects as project}
                 <Grid columns="1fr 4fr auto" fullWidth>
-                    <Tile type="primary" ratio={1}>
-                        <Img
-                            style={"width: 100%; height: auto; object-fit: cover;"}
-                            {...project.logo}
-                        />
-                    </Tile>
-                    <Flex direction="column" align="start">
-                        <h4>{project.name}</h4>
-                        <Flex wrap="wrap" justify="start">
-                            {#each project.tags as tag}
-                                <Label type="tertiary" size="small">
-                                    {tag}
-                                </Label>
-                            {/each}
-                        </Flex>
-                        <Button
-                            type="secondary"
-                            href={`/projects/${project.nav_title}`}
-                        >
-                            View Project
-                            <SolarAltArrowRightBold />
-                        </Button>
-                    </Flex>
+                    <ProjectsOverviewItem {project} />
                 </Grid>
             {/each}
-        </Grid> -->
-        <!-- <Grid columns="repeat(4, 1fr)">
-             {#each data.results as result}
-                 {#if isFullPage(result)}
-                     <Tile type="primary" ratio={1}>
-                         <NotionBlock
-                             block={result.properties.logo}
-                         />
-                     </Tile>
-                     <NotionBlock block={result.properties.name} />
-                 {/if}
-             {/each}
-         </Grid> -->
+        </Grid>
     </Spacer>
 </Container>

@@ -1,5 +1,8 @@
 import { getCollatedDatabase } from "$utils/notion/databaseCollator";
 
 export const load = async () => {
-    return await getCollatedDatabase("projects");
+    const projects = await getCollatedDatabase("projects");
+    return {
+        projects,
+    };
 };

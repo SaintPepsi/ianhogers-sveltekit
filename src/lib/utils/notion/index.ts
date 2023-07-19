@@ -13,14 +13,14 @@ export type RichTextBlock = ExtractBlockType<"rich_text">;
 export type FilesBlock = ExtractBlockType<"files">;
 export type RelationBlock = ExtractBlockType<"relation">;
 
-export interface CollatedRelationBlock
+export interface CollatedRelationBlock<T>
     extends Omit<RelationBlock, "relation"> {
-    relation: BlockRecord[];
+    relation: T[];
 }
 
 export type CollatedBlocks =
     | Exclude<Block, { type: "relation" }>
-    | CollatedRelationBlock;
+    | CollatedRelationBlock<unknown>;
 export type CollatedPageDataProperties = {
     [key: string]: CollatedBlocks;
 };
