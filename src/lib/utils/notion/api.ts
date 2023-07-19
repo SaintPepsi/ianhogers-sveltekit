@@ -15,7 +15,7 @@ import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoint
 /**
  * Initialize the Notion client
  */
-export const notionClient = new Client({
+const notionClient = new Client({
     auth: NOTION_TOKEN,
 });
 
@@ -27,25 +27,21 @@ export const fetchedDatabases: FetchedDatabaseResponses = {};
 /**
  * Fetches the database from Notion
  */
-export async function getDatabase<T extends MyNotionDatabaseKeys>(
-    database_name: T,
-): Promise<PageObjectResponse[]> {
+export async function getDatabase<T extends MyNotionDatabaseKeys>(database_name: T): Promise<PageObjectResponse[]> {
     /**
      * Check if the database exists in the registered databases
      */
     if (!Object.hasOwn(registeredNotionDatabases, database_name)) {
-        throw error(
-            500,
-            `Database ${database_name} does not exist in registered databases`,
-        );
+        throw error(500, `Database ${database_name} does not exist in registered databases`);
     }
 
     const databaseData = await notionClient.databases.query({
         database_id: registeredNotionDatabases[database_name],
     });
 
-    const cleanedDatabaseData =
-        databaseData.results.filter(isFullPage);
+    console.log("databaseData", database_name, databaseData);
+
+    const cleanedDatabaseData = databaseData.results.filter(isFullPage);
 
     fetchedDatabases[database_name] = cleanedDatabaseData;
 
@@ -57,8 +53,7 @@ export async function getDatabase<T extends MyNotionDatabaseKeys>(
  * @param page_id PageId of the Notion page you'd like to retrieve
  * @returns
  */
-export const getPage = async (page_id: string) =>
-    await notionClient.pages.retrieve({ page_id });
+export const getPage = async (page_id: string) => await notionClient.pages.retrieve({ page_id });
 
 /**
  *

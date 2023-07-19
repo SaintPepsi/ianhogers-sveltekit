@@ -5,7 +5,12 @@ export function getPlainTextFromRichText(richTextBlock: RichTextBlock) {
 }
 
 export function getTitleBlockPlainText(titleBlock: TitleBlock) {
-    return titleBlock.title.map((text) => text.plain_text).join(" ");
+    return titleBlock.title
+        .map((text) => {
+            console.log("text", text);
+            return text.plain_text;
+        })
+        .join(" ");
 }
 
 export function getFileBlockFile(fileBlock: FilesBlock) {

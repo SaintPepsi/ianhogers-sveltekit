@@ -22,19 +22,16 @@
      *   CONSTS
      **********************************************************************************************************/
     import type { ProjectsDatabasePropertiesData } from "$data/notion/databases";
+    import TileImage from "$components/TileImage.svelte";
 
     export let project: ProjectsDatabasePropertiesData;
 
-    $: project_name = getTitleBlockPlainText(project.name);
-    $: logo_colour = getPlainTextFromRichText(project.logo_colour);
+    let project_name = getTitleBlockPlainText(project.name);
+    let logo_colour = getPlainTextFromRichText(project.logo_colour);
 </script>
 
 <Tile type="primary" ratio={1}>
-    <img
-        style={`width: 100%; height: 100%; object-fit: contain; background-color: ${logo_colour}`}
-        src={getFileBlockFile(project.logo)}
-        alt={`${project_name} Logo`}
-    />
+    <TileImage backgroundColour={logo_colour} src={getFileBlockFile(project.logo)} alt={`${project_name} Logo`} />
 </Tile>
 <Flex direction="column" align="start">
     <h4>{project_name}</h4>

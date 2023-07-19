@@ -27,7 +27,7 @@ async function retrieveDatabase<T extends MyNotionDatabaseKeys>(database_name: T
     return await getDatabase<T>(database_name);
 }
 
-export async function createCollatedDatabase<T extends MyNotionDatabaseKeys>(
+async function createCollatedDatabase<T extends MyNotionDatabaseKeys>(
     database_name: T,
 ): Promise<CollatedPageDataProperties[]> {
     // Fetch the database
@@ -53,10 +53,8 @@ export async function createCollatedDatabase<T extends MyNotionDatabaseKeys>(
                      * If the property is a relation, fetch the database for that relation
                      */
                     if (property.type === "relation") {
-                        console.log("property_name", property_name);
                         const requiredDatabaseResults = await retrieveDatabase(property_name as MyNotionDatabaseKeys);
 
-                        console.log("requiredDatabaseResults", requiredDatabaseResults);
                         const newRelation = property.relation.map((relation) => {
                             return requiredDatabaseResults.find(
                                 (requiredDatabasePage) => requiredDatabasePage.id === relation.id,
@@ -68,11 +66,7 @@ export async function createCollatedDatabase<T extends MyNotionDatabaseKeys>(
                             return relation.properties as BlockRecord;
                         });
 
-                        console.log("property", property);
-                        console.log("property_name", property_name);
-                        console.log("mappedNewRelation", mappedNewRelation);
-
-                        const newProperty: CollatedRelationBlock<unknown> = {
+                        const newProperty: CollatedRelationBlock = {
                             type: property.type,
                             id: property.id,
                             relation: mappedNewRelation as BlockRecord[],
@@ -90,8 +84,6 @@ export async function createCollatedDatabase<T extends MyNotionDatabaseKeys>(
     );
 
     return collatedDatabaseDataProperties.reverse();
-
-    // return databaseData as MyDatabasePropertiesData[T];
 }
 
 async function retrieveCollatedDatabase<T extends MyNotionDatabaseKeys>(
