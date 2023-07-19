@@ -34,7 +34,7 @@ export interface TagsDatabaseProperties {
     solutions: RelationBlock;
     projects: RelationBlock;
 }
-type CollatedTagsBlock = CollatedRelationBlock<TagsDatabaseProperties>;
+export type CollatedTagsBlock = CollatedRelationBlock<TagsDatabaseProperties>;
 
 /** Page Content */
 export interface PageContentDatabaseProperties {

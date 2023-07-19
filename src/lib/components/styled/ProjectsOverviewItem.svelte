@@ -10,8 +10,9 @@
      **********************************************************************************************************/
     import Button from "$components/Button.svelte";
     import Flex from "$components/Flex.svelte";
-    import Label from "$components/Label.svelte";
     import Tile from "$components/Tile.svelte";
+    import TagsRenderer from "$components/notion/TagsRenderer.svelte";
+    import TileImage from "$components/TileImage.svelte";
 
     /**********************************************************************************************************
      *   UTILITIES
@@ -22,7 +23,6 @@
      *   CONSTS
      **********************************************************************************************************/
     import type { ProjectsDatabasePropertiesData } from "$data/notion/databases";
-    import TileImage from "$components/TileImage.svelte";
 
     export let project: ProjectsDatabasePropertiesData;
 
@@ -36,11 +36,7 @@
 <Flex direction="column" align="start">
     <h4>{project_name}</h4>
     <Flex wrap="wrap" justify="start">
-        {#each project.tags.relation as tag}
-            <Label type="tertiary" size="small">
-                {getTitleBlockPlainText(tag.name)}
-            </Label>
-        {/each}
+        <TagsRenderer tags={project.tags} />
     </Flex>
     <Button type="secondary" href={`/projects/${getPlainTextFromRichText(project.nav_title)}/`}>
         View Project
