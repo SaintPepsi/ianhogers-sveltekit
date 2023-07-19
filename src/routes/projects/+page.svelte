@@ -29,9 +29,7 @@
     const iconSize = PADDING * 6;
 </script>
 
-<SvelteSeo title="Svelte Notion Kit" description="Brings your Notion pages to SvelteKit" />
-
-<section class="" />
+<SvelteSeo title="Ian Hogers - Projects" description="Please view some of the projects i've worked on below!" />
 
 <Container size="medium">
     <Spacer>
@@ -44,7 +42,7 @@
             <svelte:fragment slot="Content">
                 <h1>Projects</h1>
                 <Bar {type} />
-                <h4>Have a look at some of my recent projects below!</h4>
+                <h4>Please view the projects i've worked on below!</h4>
             </svelte:fragment>
         </HeadingTileContent>
     </Spacer>
