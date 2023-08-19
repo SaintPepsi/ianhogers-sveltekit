@@ -1,13 +1,19 @@
 /**********************************************************************************************************
  *   UTILITIES
  **********************************************************************************************************/
-import { fetchedDatabases, getDatabase } from "$lib/utils/notion/api";
+import { fetchedDatabases, getBlocks, getDatabase } from "$lib/utils/notion/api";
 
 /**********************************************************************************************************
  *   CONSTS
  **********************************************************************************************************/
 import type { MyNotionDatabaseKeys } from "$data/notion/databases";
-import type { Block, BlockRecord, CollatedPageDataProperties, CollatedRelationBlock } from "$utils/notion";
+import type {
+    Block,
+    BlockRecord,
+    CollatedPageDataProperties,
+    CollatedPageDataRelations,
+    CollatedRelationBlock,
+} from "$utils/notion";
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
 type CollatedDatabaseData = {
@@ -62,14 +68,25 @@ async function createCollatedDatabase<T extends MyNotionDatabaseKeys>(
                         });
 
                         const filteredRelation = newRelation.filter((relation) => relation) as PageObjectResponse[];
-                        const mappedNewRelation = filteredRelation.map((relation) => {
-                            return relation.properties as BlockRecord;
-                        });
+                        const mappedNewRelation = await Promise.all(
+                            filteredRelation.map(async (relation) => {
+                                const relationData: CollatedPageDataRelations<BlockRecord> = {
+                                    properties: relation.properties as BlockRecord,
+                                };
+                                const blocks = await getBlocks(relation.id);
+
+                                if (blocks.length) {
+                                    relationData.blocks = blocks;
+                                }
+
+                                return relationData;
+                            }),
+                        );
 
                         const newProperty: CollatedRelationBlock = {
                             type: property.type,
                             id: property.id,
-                            relation: mappedNewRelation as BlockRecord[],
+                            relation: mappedNewRelation,
                         };
 
                         pageDataProperties[property_name] = newProperty;

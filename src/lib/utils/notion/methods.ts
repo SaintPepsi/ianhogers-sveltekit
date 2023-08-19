@@ -7,7 +7,6 @@ export function getPlainTextFromRichText(richTextBlock: RichTextBlock) {
 export function getTitleBlockPlainText(titleBlock: TitleBlock) {
     return titleBlock.title
         .map((text) => {
-            console.log("text", text);
             return text.plain_text;
         })
         .join(" ");

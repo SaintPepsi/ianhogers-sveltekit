@@ -2,14 +2,14 @@
     /**********************************************************************************************************
      *   SHARED
      **********************************************************************************************************/
+    import Flex from "$components/Flex.svelte";
+    import TileImage from "$components/TileImage.svelte";
+    import TagsRenderer from "$components/notion/TagsRenderer.svelte";
+    import Bar from "$lib/components/Bar.svelte";
     import Container from "$lib/components/Container.svelte";
     import Spacer from "$lib/components/Spacer.svelte";
-    import Bar from "$lib/components/Bar.svelte";
-    import TileImage from "$components/TileImage.svelte";
-    import Flex from "$components/Flex.svelte";
-    import TagsRenderer from "$components/notion/TagsRenderer.svelte";
     /********** SHARED Styled **********/
-    import HeadingTileContent from "$lib/components/styled/HeadingTileContent.svelte";
+    import HeadingTileContent from "$components/styled/HeadingTileContent.svelte";
 
     /**********************************************************************************************************
      *   UTILITIES

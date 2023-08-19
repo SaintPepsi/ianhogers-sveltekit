@@ -15,10 +15,11 @@
     import type { CollatedTagsBlock } from "$data/notion/databases";
 
     export let tags: CollatedTagsBlock;
+    console.log("tags", tags);
 </script>
 
-{#each tags.relation as tag}
+{#each tags.relation as { properties }}
     <Label type="tertiary" size="small">
-        {getTitleBlockPlainText(tag.name)}
+        {getTitleBlockPlainText(properties.name)}
     </Label>
 {/each}

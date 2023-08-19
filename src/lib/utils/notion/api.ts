@@ -2,7 +2,7 @@
  *   BASE IMPORT
  **********************************************************************************************************/
 import { error } from "@sveltejs/kit";
-import { Client, isFullPage } from "@notionhq/client";
+import { Client, isFullBlock, isFullPage } from "@notionhq/client";
 import { NOTION_TOKEN } from "$env/static/private";
 
 /**********************************************************************************************************
@@ -10,7 +10,7 @@ import { NOTION_TOKEN } from "$env/static/private";
  **********************************************************************************************************/
 import { registeredNotionDatabases } from "$lib/data/notion/config";
 import type { MyNotionDatabaseKeys } from "$data/notion/databases";
-import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { BlockObjectResponse, PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
 /**
  * Initialize the Notion client
@@ -39,8 +39,6 @@ export async function getDatabase<T extends MyNotionDatabaseKeys>(database_name:
         database_id: registeredNotionDatabases[database_name],
     });
 
-    console.log("databaseData", database_name, databaseData);
-
     const cleanedDatabaseData = databaseData.results.filter(isFullPage);
 
     fetchedDatabases[database_name] = cleanedDatabaseData;
@@ -55,6 +53,10 @@ export async function getDatabase<T extends MyNotionDatabaseKeys>(database_name:
  */
 export const getPage = async (page_id: string) => await notionClient.pages.retrieve({ page_id });
 
+type FetchedDatabaseBlocksResponses = Record<string, BlockObjectResponse[]>;
+
+export const fetchedBlocks: FetchedDatabaseBlocksResponses = {};
+
 /**
  *
  * @param block_id Block id of the Notion block you'd like to retrieve
@@ -65,5 +67,10 @@ export const getBlocks = async (block_id: string) => {
         block_id,
         page_size: 50,
     });
-    return results;
+
+    const cleanedDatabaseData = results.filter(isFullBlock);
+
+    fetchedBlocks[block_id] = cleanedDatabaseData;
+
+    return cleanedDatabaseData;
 };
