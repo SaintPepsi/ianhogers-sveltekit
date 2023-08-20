@@ -2,6 +2,7 @@
     /**********************************************************************************************************
      *   SHARED
      **********************************************************************************************************/
+    import Body from "$components/Body.svelte";
     import Flex from "$components/Flex.svelte";
     import TileImage from "$components/TileImage.svelte";
     import TagsRenderer from "$components/notion/TagsRenderer.svelte";
@@ -59,9 +60,11 @@
 </Container>
 
 <Container size="medium">
-    {#each pageContentBlocks as block}
-        <NotionBlock {block} />
-    {/each}
+    <Body>
+        {#each pageContentBlocks as block}
+            <NotionBlock {block} />
+        {/each}
+    </Body>
 </Container>
 
 <style>

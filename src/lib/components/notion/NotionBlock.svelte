@@ -12,12 +12,11 @@
 
     export let block: BlockObjectResponse;
 
-    console.log("block", block);
     let blockComponent = notionBlockTypes[block.type];
 </script>
 
 {#if blockComponent}
     <svelte:component this={blockComponent} {block} />
 {:else}
-    Can't render block type: {block.type}
+    Can't render block type: {block.type} <br />
 {/if}

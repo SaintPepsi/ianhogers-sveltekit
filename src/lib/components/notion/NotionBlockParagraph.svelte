@@ -8,9 +8,7 @@
 
 <p class="notion__block-type notion__paragraph">
     {#if block.paragraph.rich_text.length}
-        {#each block.paragraph.rich_text as rich_text}
-            <NotionBlockRichText block={rich_text} />
-        {/each}
+        <NotionBlockRichText block={block.paragraph.rich_text} />
     {:else}
         <br />
     {/if}
