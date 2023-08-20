@@ -8,6 +8,7 @@ import type { SvelteComponent } from "svelte";
  *   SHARED
  **********************************************************************************************************/
 import NotionBlockHeading from "$components/notion/NotionBlockHeading.svelte";
+import NotionBlockImage from "$components/notion/NotionBlockImage.svelte";
 import NotionBlockParagraph from "$components/notion/NotionBlockParagraph.svelte";
 
 type NotionBlockTypes = {
@@ -18,4 +19,5 @@ export const notionBlockTypes: NotionBlockTypes = {
     heading_1: NotionBlockHeading,
     heading_2: NotionBlockHeading,
     heading_3: NotionBlockHeading,
+    image: NotionBlockImage,
 };

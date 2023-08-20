@@ -1,3 +1,4 @@
+import type { MyNotionDatabaseKeys } from "$data/notion/databases";
 import {
     PAGE_CONTENT_DATABASE_ID,
     PROJECTS_DATABASE_ID,
@@ -6,7 +7,7 @@ import {
 } from "$env/static/private";
 
 type NotionDatabaseEnvironmentKeys = {
-    [key: string]: string;
+    [key in MyNotionDatabaseKeys]: string;
 };
 
 export const registeredNotionDatabases: NotionDatabaseEnvironmentKeys = {
@@ -15,3 +16,5 @@ export const registeredNotionDatabases: NotionDatabaseEnvironmentKeys = {
     page_content: String(PAGE_CONTENT_DATABASE_ID),
     solutions: String(SOLUTIONS_DATABASE_ID),
 };
+
+export const registeredNotionDatabasesKeys = Object.keys(registeredNotionDatabases) as MyNotionDatabaseKeys[];

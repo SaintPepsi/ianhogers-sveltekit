@@ -11,9 +11,8 @@
     import Button from "$components/Button.svelte";
     import Flex from "$components/Flex.svelte";
     import Tile from "$components/Tile.svelte";
-    import TagsRenderer from "$components/notion/TagsRenderer.svelte";
     import TileImage from "$components/TileImage.svelte";
-
+    import TagsRenderer from "$components/notion/TagsRenderer.svelte";
     /**********************************************************************************************************
      *   UTILITIES
      **********************************************************************************************************/
@@ -27,7 +26,7 @@
     export let project: ProjectsDatabasePropertiesData;
 
     let project_name = getTitleBlockPlainText(project.name);
-    let logo_colour = getPlainTextFromRichText(project.logo_colour);
+    let logo_colour = getPlainTextFromRichText(project.logo_colour.rich_text);
 </script>
 
 <Tile type="primary" ratio={1}>
@@ -38,7 +37,7 @@
     <Flex wrap="wrap" justify="start">
         <TagsRenderer tags={project.tags} />
     </Flex>
-    <Button type="secondary" href={`/projects/${getPlainTextFromRichText(project.nav_title)}/`}>
+    <Button type="secondary" href={`/projects/${getPlainTextFromRichText(project.nav_title.rich_text)}/`}>
         View Project
         <SolarAltArrowRightBold />
     </Button>

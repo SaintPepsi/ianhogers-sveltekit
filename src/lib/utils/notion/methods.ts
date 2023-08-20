@@ -1,9 +1,10 @@
 import type { CollatedPageContentBlock } from "$data/notion/databases";
-import type { CollatedPageDataRelations, FilesBlock, RichTextBlock, TitleBlock } from "$utils/notion";
-import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import type { CollatedPageDataRelations, FilesBlock, TitleBlock } from "$utils/notion";
+import type { BlockObjectResponse, RichTextItemResponse } from "@notionhq/client/build/src/api-endpoints";
 
-export function getPlainTextFromRichText(richTextBlock: RichTextBlock) {
-    return richTextBlock.rich_text.map((text) => text.plain_text).join("");
+export function getPlainTextFromRichText(richText: RichTextItemResponse[]) {
+    console.log("richText", richText);
+    return richText.map((text) => text.plain_text).join(", ");
 }
 
 export function getTitleBlockPlainText(titleBlock: TitleBlock) {

@@ -8,7 +8,6 @@ import { error, type ServerLoad } from "@sveltejs/kit";
  **********************************************************************************************************/
 import { getCollatedDatabase } from "$utils/notion/databaseCollator";
 import { getPlainTextFromRichText } from "$utils/notion/methods";
-import type { RichTextBlock } from "$utils/notion";
 
 /**********************************************************************************************************
  *   CONSTS
@@ -17,9 +16,12 @@ import type { RichTextBlock } from "$utils/notion";
 export const load: ServerLoad = async ({ params }) => {
     const projects = await getCollatedDatabase("projects");
 
-    const project = projects.find(
-        (project) => getPlainTextFromRichText(project.nav_title as RichTextBlock) === params.nav_title,
-    );
+    const project = projects.find((project) => {
+        if (project.nav_title.type === "rich_text") {
+            return getPlainTextFromRichText(project.nav_title.rich_text) === params.nav_title;
+        }
+        return false;
+    });
 
     if (!project) {
         throw error(404, "Project not found");

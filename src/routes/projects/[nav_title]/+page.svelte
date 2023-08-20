@@ -30,8 +30,8 @@
     export let data: { project: ProjectsDatabasePropertiesData };
 
     let name = getTitleBlockPlainText(data.project.name);
-    let full_name = getPlainTextFromRichText(data.project.full_name);
-    let logo_colour = getPlainTextFromRichText(data.project.logo_colour);
+    let full_name = getPlainTextFromRichText(data.project.full_name.rich_text);
+    let logo_colour = getPlainTextFromRichText(data.project.logo_colour.rich_text);
 
     const pageContentBlocks = getPageContentBlocks(data.project.page_content);
 
