@@ -13,6 +13,8 @@
     export let block: BlockObjectResponse;
 
     let blockComponent = notionBlockTypes[block.type];
+
+    console.log("block", block);
 </script>
 
 {#if blockComponent}
