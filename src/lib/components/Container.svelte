@@ -11,7 +11,7 @@
     .Container {
         position: relative;
         width: 100%;
-        padding: 0px 24px;
+        padding: 0px $padding * 4;
         margin: 0 auto;
 
         &:not(&.medium) {
