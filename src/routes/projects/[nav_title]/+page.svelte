@@ -14,11 +14,16 @@
     /**********************************************************************************************************
      *   UTILITIES
      **********************************************************************************************************/
-    import { getFileBlockFile, getPlainTextFromRichText, getTitleBlockPlainText } from "$utils/notion/methods";
-
+    import {
+        getFileBlockFile,
+        getPageContentBlocks,
+        getPlainTextFromRichText,
+        getTitleBlockPlainText,
+    } from "$utils/notion/methods";
     /**********************************************************************************************************
      *   CONSTS
      **********************************************************************************************************/
+    import NotionBlock from "$components/notion/NotionBlock.svelte";
     import type { ProjectsDatabasePropertiesData } from "$data/notion/databases";
 
     export let data: { project: ProjectsDatabasePropertiesData };
@@ -26,6 +31,8 @@
     let name = getTitleBlockPlainText(data.project.name);
     let full_name = getPlainTextFromRichText(data.project.full_name);
     let logo_colour = getPlainTextFromRichText(data.project.logo_colour);
+
+    const pageContentBlocks = getPageContentBlocks(data.project.page_content);
 
     const type = "primary";
 </script>
@@ -51,7 +58,12 @@
     </Spacer>
 </Container>
 
-<!-- <Container size="medium">RENDER THE BLOCKS HERE</Container> -->
+<Container size="medium">
+    {#each pageContentBlocks as block}
+        <NotionBlock {block} />
+    {/each}
+</Container>
+
 <style>
     h1 {
         white-space: pre-wrap;

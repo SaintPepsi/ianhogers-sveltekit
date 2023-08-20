@@ -3,8 +3,8 @@
  **********************************************************************************************************/
 import type {
     PageObjectResponse,
-    QueryDatabaseResponse,
     PartialPageObjectResponse,
+    QueryDatabaseResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 
 /**********************************************************************************************************
@@ -41,7 +41,7 @@ export interface PageContentDatabaseProperties {
     name: TitleBlock;
     projects: RelationBlock;
 }
-type CollatedPageContentBlock = CollatedRelationBlock<PageContentDatabaseProperties>;
+export type CollatedPageContentBlock = CollatedRelationBlock<PageContentDatabaseProperties>;
 
 /** Solutions */
 export interface SolutionsDatabaseProperties {

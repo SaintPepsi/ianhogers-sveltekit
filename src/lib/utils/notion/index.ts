@@ -5,6 +5,9 @@ export type BlockRecord = Record<string, Block>;
 
 export type BlockTypes = Block["type"];
 export type ExtractBlockType<T extends BlockTypes> = Extract<Block, { type: T }>;
+
+export type BlockObjectResponseTypes = BlockObjectResponse["type"];
+
 export type TitleBlock = ExtractBlockType<"title">;
 export type RichTextBlock = ExtractBlockType<"rich_text">;
 export type FilesBlock = ExtractBlockType<"files">;
